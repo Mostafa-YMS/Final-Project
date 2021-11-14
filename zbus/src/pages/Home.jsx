@@ -1,17 +1,21 @@
 import Navbar from "../components/Navbar";
 import "../styles/home.css";
-import img from "../img/homepic.svg";
+import img from "../img/Main.svg";
 
 export const Home = () => {
   return (
-    <div className="App">
-      <div className="content">
-        <div className="home">
-          <Navbar />
-          <img src={img} alt="My Happy SVG" className="imlink" />
-          <h1 style={{ float: "left" }}> Login form </h1>
+    <>
+      <Navbar />
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
+            <h1> Login form </h1>
+          </div>
+          <div className="col-6">
+            <img src={img} className="imlink" />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

@@ -1,6 +1,5 @@
 import { Route, Routes, Redirect } from "react-router-dom";
-import { Login, Register } from "./pages";
-import { Home } from "./pages/Home";
+import { Login, Register, Home } from "./pages";
 
 function App() {
   return (

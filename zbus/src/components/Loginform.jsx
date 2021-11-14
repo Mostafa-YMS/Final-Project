@@ -30,7 +30,7 @@ export const Loginform = () => {
       </div>
       <div className="p-20 m-6 card col-9">
         <span className="d-flex justify-content-center">
-          New to Ubus ?  <a href=""> Create an account</a>
+          New to Ubus ? <a href=""> Create an account</a>
         </span>
       </div>
     </div>

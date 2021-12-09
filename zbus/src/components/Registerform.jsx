@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Input } from "./Input";
 
-export const Loginform = () => {
+export const RegisterForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const handleMode = (mode) => {
+    props.setMode(mode)
+  }
   return (
     <div className="container">
       <div className="card col-9">
@@ -24,13 +27,13 @@ export const Loginform = () => {
             type="submit"
             className="btn btn-primary m-3 d-flex justify-content-center"
           >
-            Login
+            Register
           </button>
         </form>
       </div>
       <div className="p-20 m-6 card col-9">
         <span className="d-flex justify-content-center">
-          New to Ubus ?  <a href=""> Create an account</a>
+          Already have account ?  <a href="" onClick={handleMode(false)}> Login</a>
         </span>
       </div>
     </div>

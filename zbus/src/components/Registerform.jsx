@@ -4,12 +4,10 @@ import { Input } from "./Input";
 export const RegisterForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleMode = (mode) => {
-    props.setMode(mode)
-  }
+
   return (
-    <div className="container">
-      <div className="card col-9">
+    <div id="register" style={{marginTop:'30%'}}>
+      <div>
         <form>
           <Input
             value={email}
@@ -25,15 +23,15 @@ export const RegisterForm = (props) => {
           />
           <button
             type="submit"
-            className="btn btn-primary m-3 d-flex justify-content-center"
+            className="btn btn-primary m-3"
           >
             Register
           </button>
         </form>
       </div>
-      <div className="p-20 m-6 card col-9">
+      <div className="p-20 m-6">
         <span className="d-flex justify-content-center">
-          Already have account ?  <a href="" onClick={handleMode(false)}> Login</a>
+          Already have account ?  <a href="/" > Login</a>
         </span>
       </div>
     </div>

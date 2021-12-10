@@ -1,4 +1,4 @@
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -30,15 +30,15 @@ const Navbar = () => {
             </li>
           </ul>
 
-          <ul class="my-2 my-lg-0 navbar-nav ml-auto">
-            <li class="nav-item {% block profile %} {% endblock %}">
-              <a class="nav-link" href="/accounts/profile">
+          <ul className="my-2 my-lg-0 navbar-nav ml-auto">
+            <li className="nav-item {% block profile %} {% endblock %}">
+              <a className="nav-link" href="/accounts/profile">
                 Profile
               </a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="/accounts/logout">
+            <li className="nav-item">
+              <a className="nav-link" href="/accounts/logout">
                 Logout
               </a>
             </li>
@@ -48,5 +48,3 @@ const Navbar = () => {
     </nav>
   );
 };
-
-export default Navbar;

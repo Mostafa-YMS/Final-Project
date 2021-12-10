@@ -4,12 +4,10 @@ import { Input } from "./Input";
 export const Loginform = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleMode = (mode) => {
-    props.setMode(mode)
-  }
+  
   return (
-    <div className="container">
-      <div className="card col-9">
+    <div id="login" style={{marginTop:'30%'}}>
+      <div>
         <form>
           <Input
             value={email}
@@ -31,9 +29,9 @@ export const Loginform = (props) => {
           </button>
         </form>
       </div>
-      <div className="p-20 m-6 card col-9">
+      <div className="p-20 m-6">
         <span className="d-flex justify-content-center">
-          New to Ubus ? <a href="" onClick={handleMode(true)}> Create an account</a>
+          New to Ubus ? <a href="/register"> Create an account</a>
         </span>
       </div>
     </div>

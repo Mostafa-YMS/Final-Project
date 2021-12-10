@@ -1,24 +1,15 @@
-import Navbar from "../components/Navbar";
 import "../styles/home.css";
 import img from "../img/Main.svg";
-import { useState } from "react";
-import { Loginform } from "../components/Loginform";
-import { RegisterForm } from "../components/Registerform";
+import { Loginform } from "../components";
 
-export const Home = () => {
-  const [mode, setMode] = useState('login');
+export const Home = (props) => {
+  
   return (
     <>
-      <Navbar />
       <div className="container">
         <div className="row">
           <div className="col-6">
-            {/* {mode ? (
-              <RegisterForm setMode={setMode} />
-            ) : (
-              <Loginform setMode={setMode} />
-            )}
-            {mode === "register" && <RegisterForm setMode={handleMode} />} */}
+              {props.mode}
           </div>
           <div className="col-6">
             <img src={img} className="imlink" />

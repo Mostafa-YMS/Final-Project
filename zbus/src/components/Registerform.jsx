@@ -12,13 +12,8 @@ export const RegisterForm = (props) => {
   const [photo, setPhoto] = useState("");
   const [birthday, setBirthday] = useState("");
 
-
-
-  
-
-
   return (
-    <div id="register" style={{}}>
+    <div id="register" style={{margin:"20px 0px"}}>
       <div>
         <form>
         <Input

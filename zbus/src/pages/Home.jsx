@@ -13,6 +13,7 @@ export const Home = (props) => {
           </div>
           <div className="col-6">
             <img src={img} className="imlink" />
+            <h1 className="text-center display-1">UBus</h1>
           </div>
         </div>
       </div>

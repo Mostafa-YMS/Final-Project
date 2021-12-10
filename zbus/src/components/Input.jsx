@@ -11,6 +11,7 @@ export const Input = (props) => {
         className="form-control"
         aria-describedby="emailHelp"
         onChange={handleChange}
+        accept={props.accept}
       />
     </div>
   );

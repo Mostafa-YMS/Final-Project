@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { Input } from "./Input";
+import { useNavigate } from 'react-router-dom';
+
 
 export const Loginform = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
+  const navigate = useNavigate()
+  const handleMode = ()=> {
+    navigate("/register")
+  }
+
   return (
     <div id="login" style={{marginTop:'30%'}}>
       <div>
@@ -30,9 +37,10 @@ export const Loginform = (props) => {
         </form>
       </div>
       <div className="p-20 m-6">
-        <span className="d-flex justify-content-center">
-          New to Ubus ? <a href="/register"> Create an account</a>
-        </span>
+        <p className="d-inline">
+          New to Ubus ?
+        </p>
+        <button type="button" className="btn btn-link" style={{fontSize:"14pt"}} onClick={handleMode} > Create an account</button>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ export const Loginform = (props) => {
   }
 
   return (
-    <div id="login">
+    <>
       <div>
         <form>
           <Input
@@ -42,6 +42,6 @@ export const Loginform = (props) => {
         </p>
         <button type="button" className="btn btn-link" style={{fontSize:"14pt"}} onClick={handleMode} > Create an account</button>
       </div>
-    </div>
+    </>
   );
 };

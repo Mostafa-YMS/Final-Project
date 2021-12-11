@@ -20,7 +20,7 @@ export const RegisterForm = (props) => {
     }
 
   return (
-    <div id="register" style={{margin:"20px 0px"}}>
+    <div style={{margin:"20px 0px"}}>
       <div>
         <form>
         <Input

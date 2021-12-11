@@ -14,6 +14,7 @@ function App() {
     <>
       <Navbar/>
       <Routes>
+        {/* <Route component={Home} path=" "/> */}
         <Route path="/" element={<Home mode={<Loginform/>}/>}></Route>
         <Route path="/register" element={<Home mode={<RegisterForm/>}/>}></Route>
       </Routes>

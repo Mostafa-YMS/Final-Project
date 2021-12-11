@@ -30,7 +30,8 @@ export const Loginform = (props) => {
           />
           <button
             type="submit"
-            className="btn btn-primary m-3 d-flex justify-content-center"
+            className="btn btn-primary m-3"
+            style={{width:'94%'}}
           >
             Login
           </button>

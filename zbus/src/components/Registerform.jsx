@@ -81,6 +81,7 @@ export const RegisterForm = (props) => {
           <button
             type="submit"
             className="btn btn-primary m-3"
+            style={{width:'94%'}}
           >
             Register
           </button>

@@ -1,8 +1,7 @@
 import "../styles/home.css";
 import img from "../img/Main.svg";
-import { Loginform } from "../components";
 
-export const Home = (props) => {
+export const LoginRegister = (props) => {
   
   return (
     <>

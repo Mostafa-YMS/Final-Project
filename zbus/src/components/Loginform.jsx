@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export const Loginform = (props) => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   
   const navigate = useNavigate()
@@ -17,10 +17,10 @@ export const Loginform = (props) => {
       <div>
         <form>
           <Input
-            value={email}
-            setValue={setEmail}
-            label={"Email"}
-            type={"email"}
+            value={username}
+            setValue={setUsername}
+            label={"Username"}
+            type={"text"}
           />
           <Input
             value={password}

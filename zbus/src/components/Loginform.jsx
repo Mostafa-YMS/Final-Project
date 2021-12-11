@@ -13,7 +13,7 @@ export const Loginform = (props) => {
   }
 
   return (
-    <div id="login" style={{marginTop:'30%'}}>
+    <div id="login">
       <div>
         <form>
           <Input

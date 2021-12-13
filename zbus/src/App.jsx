@@ -1,9 +1,12 @@
 import { Route, Routes, Redirect } from "react-router-dom";
-import { Home } from "./pages";
 import { Navbar } from './components/Navbar';
 import { useState } from "react";
 import { Loginform, RegisterForm } from "./components";
-
+import { LoginRegister } from './pages/LoginRegister';
+// import { Home } from "./pages/Home";
+import Home from './pages/Home'
+import PrivateRoute from './utils/PrivateRoute'
+import { AuthProvider } from './context/AuthContext'
 
 function App() {
 
@@ -12,12 +15,18 @@ function App() {
 
   return (
     <>
-      <Navbar/>
-      <Routes>
-        {/* <Route component={Home} path=" "/> */}
-        <Route path="/" element={<Home mode={<Loginform/>}/>}></Route>
-        <Route path="/register" element={<Home mode={<RegisterForm/>}/>}></Route>
-      </Routes>
+      
+             
+      <AuthProvider> 
+              <Navbar/>      
+             <Routes>
+               <Route path="/home" element={<PrivateRoute child={<Home />} />}>
+               </Route>
+               <Route path="/" element={<LoginRegister mode={<Loginform/>}/>}></Route>
+               <Route path="/register" element={<LoginRegister mode={<RegisterForm/>}/>}></Route>
+               
+             </Routes>
+      </AuthProvider>
     </>
     
   );

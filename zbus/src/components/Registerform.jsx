@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Input } from "./Input";
+import { useNavigate } from 'react-router-dom';
+
 
 export const RegisterForm = (props) => {
   const [email, setEmail] = useState("");
@@ -12,8 +14,13 @@ export const RegisterForm = (props) => {
   const [photo, setPhoto] = useState("");
   const [birthday, setBirthday] = useState("");
 
+  const navigate = useNavigate()
+    const handleMode = ()=> {
+      navigate("/")
+    }
+
   return (
-    <div id="register" style={{margin:"20px 0px"}}>
+    <div style={{margin:"20px 0px"}}>
       <div>
         <form>
         <Input
@@ -79,10 +86,11 @@ export const RegisterForm = (props) => {
           </button>
         </form>
       </div>
-      <div className="p-20 m-6">
-        <span className="d-flex justify-content-center">
-          Already have account ?  <a href="/" > Login</a>
-        </span>
+      <div className="m-6">
+        <p className="d-inline">
+          Already have account ? 
+        </p>
+        <button type="button" className="btn btn-link" style={{fontSize:"14pt"}} onClick={handleMode} > Login</button>
       </div>
     </div>
   );

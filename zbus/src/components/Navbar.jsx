@@ -1,4 +1,10 @@
+import React, {useContext} from 'react'
+import AuthContext from '../context/AuthContext'
+
+
 export const Navbar = () => {
+  let {user,logOut} = useContext(AuthContext)
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -29,19 +35,19 @@ export const Navbar = () => {
               </a>
             </li>
           </ul>
-
+    
           <ul className="my-2 my-lg-0 navbar-nav ml-auto">
             <li className="nav-item {% block profile %} {% endblock %}">
               <a className="nav-link" href="/accounts/profile">
                 Profile
               </a>
             </li>
-
+            {user?
             <li className="nav-item">
-              <a className="nav-link" href="/accounts/logout">
-                Logout
+              <a className="nav-link" href="/" onClick={logOut}>
+                 logout
               </a>
-            </li>
+            </li> : null}
           </ul>
         </div>
       </div>

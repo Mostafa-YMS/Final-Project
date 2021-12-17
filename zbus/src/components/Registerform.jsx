@@ -12,7 +12,7 @@ export const RegisterForm = (props) => {
   
   const navigate = useNavigate()
      const handleMode = ()=> {
-       navigate("/")
+       navigate("/login")
      }
 
   async function signup() {

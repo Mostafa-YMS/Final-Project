@@ -19,7 +19,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route
-            path="/"
+            path="/login"
             element={
               <LoginRoute child={<LoginRegister mode={<Loginform />} />} />
             }
@@ -30,8 +30,8 @@ function App() {
               <LoginRoute child={<LoginRegister mode={<RegisterForm />} />} />
             }
           />
-          <Route path="/home" element={<PrivateRoute child={<Home />} />} />
-          <Route path="/map" element={<Map />} />
+          <Route path="/test" element={<PrivateRoute child={<Home />} />} />
+          <Route path="/" element={<Map />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </AuthProvider>

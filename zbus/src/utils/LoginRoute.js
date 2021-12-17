@@ -6,7 +6,7 @@ import AuthContext from '../context/AuthContext'
 
 const LoginRoute = (props) => {
     let {user} = useContext(AuthContext)
-    return !user ? props.child : <Navigate to={"/map"}/>  ;
+    return !user ? props.child : <Navigate to={"/"}/>  ;
     // const authenticated = false
     // return authenticated ? props.child : <Navigate to="/"  />;
     

@@ -7,7 +7,7 @@ import { LoginRegister } from './pages/LoginRegister';
 import Home from './pages/Home'
 import PrivateRoute from './utils/PrivateRoute'
 import { AuthProvider } from './context/AuthContext'
-import { Map } from './pages';
+import { Map,Profile } from './pages';
 
 function App() {
 
@@ -25,6 +25,8 @@ function App() {
                <Route path="/map" element={<Map/>}/>
                <Route path="/" element={<LoginRegister mode={<Loginform/>}/>}/>
                <Route path="/register" element={<LoginRegister mode={<RegisterForm/>}/>}/>
+               <Route path="/profile" element={<Profile/>}/>
+
              </Routes>
       </AuthProvider>
     </>

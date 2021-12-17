@@ -25,7 +25,7 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/home">
+              <a className="nav-link active" aria-current="page" href="/">
                 Home
               </a>
             </li>
@@ -38,13 +38,13 @@ export const Navbar = () => {
     
           <ul className="my-2 my-lg-0 navbar-nav ml-auto">
             <li className="nav-item {% block profile %} {% endblock %}">
-              <a className="nav-link" href="/accounts/profile">
+              <a className="nav-link" href="/Profile">
                 Profile
               </a>
             </li>
             {user?
             <li className="nav-item">
-              <a className="nav-link" href="/" onClick={logOut}>
+              <a className="nav-link" href="/login" onClick={logOut}>
                  logout
               </a>
             </li> : null}

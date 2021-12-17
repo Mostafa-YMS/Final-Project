@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import PrivateRoute from './utils/PrivateRoute'
 import { AuthProvider } from './context/AuthContext'
 import { Map } from './pages';
+import { LinesStops } from './pages/LinesStops';
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
               <Navbar/>      
              <Routes>
                <Route path="/home" element={<PrivateRoute child={<Home/>} />}/>
-               <Route path="/map" element={<Map/>}/>
+               <Route path="/map" element={<LinesStops/>}/>
                <Route path="/" element={<LoginRegister mode={<Loginform/>}/>}/>
                <Route path="/register" element={<LoginRegister mode={<RegisterForm/>}/>}/>
              </Routes>

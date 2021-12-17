@@ -1,57 +1,100 @@
-import React, {useState} from 'react';
-
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 
 export const RegisterForm = (props) => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [username, setUsername] = useState("");
-    const [ first_name , setFname] = useState("");
-    const [last_name, setLname] = useState("");
-    const [birth_date, setBirthday] = useState("");
-   async function signup(){
-         let item={email,username,first_name,last_name,password,birth_date}
-         console.warn(item)
-         
-
-         
-          
-         let result= await fetch("http://127.0.0.1:8000/user/register",{
-             method:'POST',
-                 body:JSON.stringify(item),
-                 headers:{
-                     "Content-Type":'application/json',
-                      // "Accapt":'application/json' 
-                     }  }) 
-             result=await result.json(); 
-             console.warn(result) }
-           return (  
-           <div className="App"> 
-              <h1>register here</h1>
-                <input type="text"onChange={(e)=>setFname(e.target.value)} className="form-control" placeholder="first_name"/>
-                  <br/>
-                    <input type="text" onChange={(e)=>setLname(e.target.value)}className="form-control" placeholder="last_name"/>
-                      <br/>
-    <input type="text"onChange={(e)=>setUsername(e.target.value)} className="form-control" placeholder="username"/>
-      <br/>
-    <input type="email"onChange={(e)=>setEmail(e.target.value)} className="form-control" placeholder="email"/>
-      <br/>
-    <input type="password" onChange={(e)=>setPassword(e.target.value)}className="form-control" placeholder="password"/>
-      <br/>
-    <input type="date" onChange={(e)=>setBirthday(e.target.value)}className="form-control" placeholder="birth"/>
-      <button onClick={signup}>signup</button>
-   </div>
-   );}
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [first_name, setFname] = useState("");
+  const [last_name, setLname] = useState("");
+  const [birth_date, setBirthday] = useState("");
   
+  const navigate = useNavigate()
+     const handleMode = ()=> {
+       navigate("/")
+     }
 
+  async function signup() {
+    let item = { email, username, first_name, last_name, password, birth_date };
+    console.warn(item);
 
-
-
+    let result = await fetch("http://127.0.0.1:8000/user/register", {
+      method: "POST",
+      body: JSON.stringify(item),
+      headers: {
+        "Content-Type": "application/json",
+        // "Accapt":'application/json'
+      },
+    });
+    result = await result.json();
+    console.warn(result);
+    navigate("/map")
+  }
+  return (
+    <div className="App">
+      <h1>Register</h1>
+      <input
+        type="text"
+        onChange={(e) => setFname(e.target.value)}
+        className="form-control"
+        placeholder="first_name"
+      />
+      <br />
+      <input
+        type="text"
+        onChange={(e) => setLname(e.target.value)}
+        className="form-control"
+        placeholder="last_name"
+      />
+      <br />
+      <input
+        type="text"
+        onChange={(e) => setUsername(e.target.value)}
+        className="form-control"
+        placeholder="username"
+      />
+      <br />
+      <input
+        type="email"
+        onChange={(e) => setEmail(e.target.value)}
+        className="form-control"
+        placeholder="email"
+      />
+      <br />
+      <input
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
+        className="form-control"
+        placeholder="password"
+      />
+      <br />
+      <input
+        type="date"
+        onChange={(e) => setBirthday(e.target.value)}
+        className="form-control"
+        placeholder="birth"
+      />
+       <button
+             className="btn btn-primary mt-3 mb-3"
+             style={{width:'100%'}}
+             onClick={signup}
+           >
+             Register
+           </button>
+       <div className="m-6">
+         <p className="d-inline">
+           Already have account ?
+         </p>
+         <button type="button" className="btn btn-link" style={{fontSize:"14pt"}} onClick={handleMode} > Login</button>
+       </div>
+    </div>
+  );
+};
 
 // import { useState } from "react";
 // import { Input } from "./Input";
 // import { useNavigate } from 'react-router-dom';
-
 
 // export const RegisterForm = (props) => {
 //   const [email, setEmail] = useState("");
@@ -139,7 +182,7 @@ export const RegisterForm = (props) => {
 //       </div>
 //       <div className="m-6">
 //         <p className="d-inline">
-//           Already have account ? 
+//           Already have account ?
 //         </p>
 //         <button type="button" className="btn btn-link" style={{fontSize:"14pt"}} onClick={handleMode} > Login</button>
 //       </div>
@@ -151,22 +194,21 @@ export const RegisterForm = (props) => {
 
 // import { useNavigate } from 'react-router-dom';
 
-
 // export const RegisterForm = (props) => {
-    
+
 //     const [password, setPassword] = useState("");
 //     const [username, setUsername] = useState("");
-   
+
 //     const [first_name, setFname] = useState("");
 //     const [last_name, setLname] = useState("");
-   
+
 //     const [profile_photo, setPhoto] = useState("");
 //     const [birth_date, setBirthday] = useState("");
 //     const navigate = useNavigate()
 //     const handleMode = ()=> {
 //       navigate("/")
-//     }   
-  
+//     }
+
 //     const submit = async (e )=> {
 
 //         e.preventDefault();
@@ -179,47 +221,45 @@ export const RegisterForm = (props) => {
 //         });
 //         let data = await response.json()
 //         if(response.status === 200){
-          
-          
+
 //           console.log("data",data)
 //           navigate('/')
 //         }
 //         else{
 //           alert('Something went wrong!')
 //       }
-      
+
 //     }
-    
+
 //     return (
 //     <div style={{margin:"20px 0px"}}>
 //       <div>
-        
-         
+
 //           <input label={"First Name"}
-//             className="form-control" placeholder="fName" 
+//             className="form-control" placeholder="fName"
 //             onChange={e => setFname(e.target.value)}
 //           />
 //           <input label={"Last Name"}
-//             className="form-control" placeholder="lname" 
+//             className="form-control" placeholder="lname"
 //             onChange={e => setLname(e.target.value)}
 //           />
 //           <input label={"Username"}
-//             className="form-control" placeholder="username" 
-//             onChange={e => setUsername(e.target.value)} 
+//             className="form-control" placeholder="username"
+//             onChange={e => setUsername(e.target.value)}
 //           />
 //           <input label={"Password"}
-//             className="form-control" placeholder="password" 
-//             onChange={e => setPassword(e.target.value)} 
+//             className="form-control" placeholder="password"
+//             onChange={e => setPassword(e.target.value)}
 //           />
 //           <input label={"Birthday"}
-//             className="form-control" placeholder="birthday" 
-//             onChange={e => setBirthday(e.target.value)} 
+//             className="form-control" placeholder="birthday"
+//             onChange={e => setBirthday(e.target.value)}
 //           />
 //           <input label={"Profile Picture"}
-//             className="form-control" placeholder="setPhoto" 
+//             className="form-control" placeholder="setPhoto"
 //             onChange={e => setPhoto(e.target.value)} type={"file"} accept={"image/*"}
 //           />
-          
+
 //           <button
 //             onClick={submit}
 //             className="btn btn-primary m-3"
@@ -227,11 +267,11 @@ export const RegisterForm = (props) => {
 //           >
 //             Register
 //           </button>
-        
+
 //       </div>
 //       <div className="m-6">
 //         <p className="d-inline">
-//           Already have account ? 
+//           Already have account ?
 //         </p>
 //         <button type="button" className="btn btn-link" style={{fontSize:"14pt"}} onClick={handleMode} > Login</button>
 //       </div>

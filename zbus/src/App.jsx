@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import PrivateRoute from './utils/PrivateRoute'
 import { AuthProvider } from './context/AuthContext'
 import { Map } from './pages';
+import LoginRoute from './utils/LoginRoute';
 
 function App() {
 
@@ -23,8 +24,8 @@ function App() {
              <Routes>
                <Route path="/home" element={<PrivateRoute child={<Home/>} />}/>
                <Route path="/map" element={<Map/>}/>
-               <Route path="/" element={<LoginRegister mode={<Loginform/>}/>}/>
-               <Route path="/register" element={<LoginRegister mode={<RegisterForm/>}/>}/>
+               <Route path="/" element={<LoginRoute child={<LoginRegister mode={<Loginform/>}/>}/>}/>
+               <Route path="/register" element={<LoginRoute child={<LoginRegister mode={<RegisterForm/>}/>}/>}/>
              </Routes>
       </AuthProvider>
     </>

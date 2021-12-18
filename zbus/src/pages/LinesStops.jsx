@@ -51,7 +51,7 @@ export const LinesStops = ()=> {
                       station.line === line.id ).map( (station)=>(
                       <button className="dropdown-item" key={station.id} onClick={()=>{
                         console.log(station);
-                         setViewport({latitude: station.st_latitude+0.5698, longitude: station.st_longitude+0.2659, zoom:12, pitch: 0,
+                         setViewport({latitude: station.st_latitude, longitude: station.st_longitude, zoom:17, pitch: 0,
                           bearing: 0,
                           transitionDuration: 1000,
                           transitionInterpolator: new FlyToInterpolator()} )

@@ -11,5 +11,5 @@ export const Map = ()=> {
     zoom: 1
   })
   
-  return (<MainMap  viewport={viewport} auto={true}  setViewport={setViewport}/>);
+  return (<MainMap  viewport={viewport} auto={true} width={"60%"} setViewport={setViewport}/>);
 }

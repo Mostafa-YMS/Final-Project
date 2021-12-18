@@ -61,8 +61,8 @@ export const MainMap = (props) => {
       style={{
         position: "absolute",
         display: "inline-block",
-        width: 1800,
-        height: 900,
+        width: 1100,
+        height: 800,
       }}
     >
       <DeckGL
@@ -71,7 +71,7 @@ export const MainMap = (props) => {
         layers={layer}
         ContextProvider={MapContext.Provider}
       >
-        <MapView id="map"  height="70%" width={props.width} controller={true}>
+        <MapView id="map" controller={true}>
           <ReactMapGL
             // {...viewport}
             onViewportChange={(nextViewport) => props.setViewport(nextViewport)}

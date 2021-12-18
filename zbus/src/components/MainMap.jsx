@@ -7,7 +7,7 @@ import {MapView} from '@deck.gl/core';
 import {PathLayer} from '@deck.gl/layers';
 
 
-export const MainMap = ()=> {
+export const MainMap = (props)=> {
   const MAPBOX_TOKEN='pk.eyJ1IjoibW9oYW1lZGFtaW4wMDAwMCIsImEiOiJja3gwZnJiazkwczRhMnJwenduZ2ZkN2x6In0.HafaYHRDf0lGzVMq3k318w'
 
   const geolocateStyle = {
@@ -18,11 +18,11 @@ export const MainMap = ()=> {
 
   const positionOptions = {enableHighAccuracy: true};
 
-  const [viewport, setViewport] = useState({
-    latitude: 30.0778,
-    longitude: 31.2852,
-    zoom: 1
-  })
+  // const [viewport, setViewport] = useState({
+  //   latitude: 30.0778,
+  //   longitude: 31.2852,
+  //   zoom: 1
+  // })
 
   const data = [{
        path: [[30.0778, 31.2852], [31.2852, 30.0778]],
@@ -45,7 +45,7 @@ export const MainMap = ()=> {
   return (
     <div style={{position: "absolute", display: 'inline-block', width: 1800, height: 900}}>
     <DeckGL
-      initialViewState={viewport}
+      initialViewState={props.viewport}
       controller={true}
       layers={layer}
       ContextProvider={MapContext.Provider}
@@ -53,7 +53,7 @@ export const MainMap = ()=> {
       <MapView id="map" width="50%" height="80%" controller={true}>
        <ReactMapGL
       // {...viewport}
-      onViewportChange={nextViewport => setViewport(nextViewport)}
+      onViewportChange={nextViewport => props.setViewport(nextViewport)}
       mapboxApiAccessToken={MAPBOX_TOKEN}
       mapStyle="mapbox://styles/mapbox/dark-v9"
       // mapStyle="mapbox://styles/mapbox/streets-v8"
@@ -66,7 +66,7 @@ export const MainMap = ()=> {
         style={geolocateStyle}
         positionOptions={positionOptions}
         trackUserLocation
-        auto
+        // auto
       />
       <div style={{ position: "absolute", right: 30, top: 0, zIndex: 1 }}>
         <NavigationControl />

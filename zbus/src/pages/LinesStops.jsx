@@ -70,7 +70,7 @@ export const LinesStops = ()=> {
  
         <div style={{ float : "right" , height:"500px" , width:"900px" , margin:"50px" ,padindLeft:"100px"}}>
             
-        <MainMap viewport={viewport}  setViewport={setViewport}/>
+        <MainMap viewport={viewport} width="50%" setViewport={setViewport}/>
         </div> 
  
 

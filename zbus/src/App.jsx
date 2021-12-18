@@ -35,9 +35,9 @@ function App() {
             }
           />
           <Route path="/test" element={<PrivateRoute child={<Home />} />} />
-          <Route path="/" element={<Map/>} />
-          <Route path="/profile" element={<Profile/>} />
-          <Route path="/lines" element={<LinesStops/>} />
+          <Route path="/" element={<PrivateRoute child={<Map/>} />} />
+          <Route path="/profile" element={<PrivateRoute child={<Profile/>} />} />
+          <Route path="/lines" element={<PrivateRoute child={<LinesStops/>} />} />
         </Routes>
       </AuthProvider>
     </>

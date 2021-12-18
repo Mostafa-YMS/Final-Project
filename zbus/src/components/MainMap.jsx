@@ -71,7 +71,7 @@ export const MainMap = (props) => {
         layers={layer}
         ContextProvider={MapContext.Provider}
       >
-        <MapView id="map"  height="70%" controller={true}>
+        <MapView id="map"  height="70%" width={props.width} controller={true}>
           <ReactMapGL
             // {...viewport}
             onViewportChange={(nextViewport) => props.setViewport(nextViewport)}
@@ -86,7 +86,7 @@ export const MainMap = (props) => {
           style={geolocateStyle}
           positionOptions={positionOptions}
           trackUserLocation
-          // auto
+          auto = {props.auto}
         />
         <div style={{ position: "absolute", right: 30, top: 0, zIndex: 1 }}>
           <NavigationControl />

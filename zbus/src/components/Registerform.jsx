@@ -83,7 +83,7 @@ export const RegisterForm = (props) => {
              Register
            </button>
        <div className="m-6">
-         <p className="d-inline">
+         <p className="d-inline" style={{color:'black'}}>
            Already have account ?
          </p>
          <button type="button" className="btn btn-link" style={{fontSize:"14pt"}} onClick={handleMode} > Login</button>

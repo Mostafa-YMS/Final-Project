@@ -47,7 +47,11 @@ export const Navbar = () => {
               <a className="nav-link" href="/login" onClick={logOut}>
                  logout
               </a>
-            </li> : null}
+            </li> :<li className="nav-item">
+              <a className="nav-link" href="/login" onClick={logOut}>
+                 login
+              </a>
+            </li>}
           </ul>
         </div>
       </div>

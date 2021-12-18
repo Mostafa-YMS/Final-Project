@@ -71,7 +71,7 @@ export const MainMap = (props) => {
         layers={layer}
         ContextProvider={MapContext.Provider}
       >
-        <MapView id="map"  height="80%" controller={true}>
+        <MapView id="map"  height="70%" controller={true}>
           <ReactMapGL
             // {...viewport}
             onViewportChange={(nextViewport) => props.setViewport(nextViewport)}

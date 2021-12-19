@@ -11,7 +11,7 @@ import { Map, Profile } from "./pages";
 import LoginRoute from "./utils/LoginRoute";
 import React from "react";
 import "./styles/App.css";
-import { LinesStops } from './pages/LinesStops';
+import {Lines_Stations} from "./pages/lines_Stations"  ;
 
 function App() {
   const [mode, setState] = useState("login");
@@ -38,7 +38,7 @@ function App() {
           <Route path="/test" element={<PrivateRoute child={<Home />} />} />
           <Route path="/" element={<PrivateRoute child={<Map/>} />} />
           <Route path="/profile" element={<PrivateRoute child={<Profile/>} />} />
-          <Route path="/lines" element={<PrivateRoute child={<LinesStops/>} />} />
+          <Route path="/lines" element={<Lines_Stations/>} />
         </Routes>
       </AuthProvider>
     </>

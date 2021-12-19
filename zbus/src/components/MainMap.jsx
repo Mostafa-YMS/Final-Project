@@ -5,6 +5,7 @@ import { Stations } from '../components';
 import DeckGL from '@deck.gl/react';
 import {MapView} from '@deck.gl/core';
 import {PathLayer} from '@deck.gl/layers';
+import { Bus1 } from './Bus1';
 
 
 export const MainMap = ()=> {
@@ -61,6 +62,7 @@ export const MainMap = ()=> {
       </ReactMapGL>
       </MapView>
       
+      <Bus1 />
       <Stations/>
       <GeolocateControl
         style={geolocateStyle}

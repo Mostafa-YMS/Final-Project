@@ -30,6 +30,8 @@ export const LinesStops = () => {
 
 
   const [viewport, setViewport] = useState({
+    width: 900,
+    height: 500,
     latitude: 30.0778,
     longitude: 31.2852,
     zoom: 1

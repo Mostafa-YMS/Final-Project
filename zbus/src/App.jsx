@@ -9,14 +9,19 @@ import PrivateRoute from "./utils/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 import { Map, Profile } from "./pages";
 import LoginRoute from "./utils/LoginRoute";
+import React from "react";
+import "./styles/App.css";
+import { LinesStops } from './pages/LinesStops';
 
 function App() {
   const [mode, setState] = useState("login");
+ 
 
   return (
     <>
       <AuthProvider>
         <Navbar />
+        <div className="container">
         <Routes>
           <Route
             path="/login"
@@ -31,9 +36,11 @@ function App() {
             }
           />
           <Route path="/test" element={<PrivateRoute child={<Home />} />} />
-          <Route path="/" element={<Map />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/" element={<PrivateRoute child={<Map/>} />} />
+          <Route path="/profile" element={<PrivateRoute child={<Profile/>} />} />
+          <Route path="/lines" element={<PrivateRoute child={<LinesStops/>} />} />
         </Routes>
+        </div>
       </AuthProvider>
     </>
   );

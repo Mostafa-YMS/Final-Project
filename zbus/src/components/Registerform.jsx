@@ -12,7 +12,7 @@ export const RegisterForm = (props) => {
   
   const navigate = useNavigate()
      const handleMode = ()=> {
-       navigate("/")
+       navigate("/login")
      }
 
   async function signup() {
@@ -29,7 +29,7 @@ export const RegisterForm = (props) => {
     });
     result = await result.json();
     console.warn(result);
-    navigate("/map")
+    navigate("/login")
   }
   return (
     <div className="App">

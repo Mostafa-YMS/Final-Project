@@ -21,7 +21,7 @@ function App() {
     <>
       <AuthProvider>
         <Navbar />
-        <div className="container">
+        
         <Routes>
           <Route
             path="/login"
@@ -40,7 +40,6 @@ function App() {
           <Route path="/profile" element={<PrivateRoute child={<Profile/>} />} />
           <Route path="/lines" element={<PrivateRoute child={<LinesStops/>} />} />
         </Routes>
-        </div>
       </AuthProvider>
     </>
   );

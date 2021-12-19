@@ -29,7 +29,7 @@ export const RegisterForm = (props) => {
     });
     result = await result.json();
     console.warn(result);
-    navigate("/map")
+    navigate("/login")
   }
   return (
     <div className="App">

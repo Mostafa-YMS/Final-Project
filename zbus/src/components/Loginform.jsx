@@ -48,6 +48,7 @@
 import { useNavigate } from "react-router-dom";
 import React, { useContext } from "react";
 import AuthContext from "../context/AuthContext";
+import { GoogleLog } from './GoogleLog';
 
 export const Loginform = (props) => {
   let { loginUser } = useContext(AuthContext);
@@ -83,6 +84,7 @@ export const Loginform = (props) => {
         >
           Login
         </button>
+        <GoogleLog></GoogleLog>
       </form>
       <div className="p-20 m-6">
         <p className="d-inline">New to Ubus ?</p>

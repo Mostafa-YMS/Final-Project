@@ -25,7 +25,7 @@ export const Bus1 = ()=> {
         <Marker {...pop}>
             <img src={img}/>
         </Marker>
-        {/* <Marker {...x}>
+        <Marker {...x}>
             <img src={img}/>
         </Marker>
         <Marker {...y}>
@@ -33,7 +33,7 @@ export const Bus1 = ()=> {
         </Marker>
         <Marker {...pop}>
             <img src={img}/>
-        </Marker> */}
+        </Marker>
         </>
     )
 }

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useGetStations } from '../hooks/useGetStations';
 
 
-export const LinesStops = ()=> {
+export const TestLinesStops = ()=> {
     const [stations, setStations] = useState([]);
     const getPosts = useGetStations();
   

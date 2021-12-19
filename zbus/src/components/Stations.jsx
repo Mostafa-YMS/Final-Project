@@ -1,12 +1,12 @@
 import { Marker } from "react-map-gl";
 import img from "../img/bus.svg";
 
-const pop = {
-  longitude: 31.2852,
-  latitude: 30.0778,
-  offsetLeft: 0.1526,
-  offsetTop: 0.1542,
-};
+// const pop = {
+//   longitude: 31.2852,
+//   latitude: 30.0778,
+//   offsetLeft: 0.1526,
+//   offsetTop: 0.1542,
+// };
 
 const pop1 = { longitude: 31.2454, latitude: 30.0805 };
 
@@ -18,12 +18,17 @@ const pop4 = { longitude: 31.2425, latitude: 30.057 };
 
 const pop5 = { longitude: 31.2648, latitude: 30.0689 };
 
+const pop6 = { longitude: 31.18406, latitude: 30.46249 };
+
+const pop7 = { longitude: 31.23542, latitude: 30.04416 };
+
+const pop8 = { longitude: 31.13438, latitude: 30.54566 };
+
+
+
 export const Stations = () => {
   return (
     <>
-      <Marker {...pop}>
-        <img src={img} />
-      </Marker>
       <Marker {...pop1}>
         <img src={img} />
         <p style={{ color: "white" }}> روض الفرج</p>
@@ -47,6 +52,21 @@ export const Stations = () => {
       <Marker {...pop5}>
         <img src={img} />
         <p style={{ color: "white" }}>غمره </p>
+      </Marker>
+
+      <Marker {...pop6}>
+        <img src={img} />
+        <p style={{ color: "white" }}>Banha</p>
+      </Marker>
+
+      <Marker {...pop7}>
+        <img src={img} />
+        <p style={{ color: "white" }}>Cairo</p>
+      </Marker>
+
+      <Marker {...pop8}>
+        <img src={img} />
+        <p style={{ color: "white" }}>Qwysna</p>
       </Marker>
     </>
   );

@@ -296,7 +296,7 @@ export const MainMap = (props) => {
       style={{
         position: "absolute",
         display: "inline-block",
-        width: 1100,
+        width: 800,
         height: 800,
       }}
     >

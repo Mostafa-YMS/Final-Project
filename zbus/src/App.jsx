@@ -45,7 +45,7 @@ function App() {
           <Route path="/test" element={<PrivateRoute child={<Home />} />} />
           <Route path="/" element={<PrivateRoute child={<Map/>} />} />
           <Route path="/profile" element={<PrivateRoute child={<Profile/>} />} />
-          {/* <Route path="/lines" element={<PrivateRoute child={<LinesStops/>} />} /> */}
+          {/* <Route path="/lines" element={<PrivateRoute child={<Lines_Stations/>} />} /> */}
           <Route path="/lines" element={<Lines_Stations/>} />
           ######
           {/* <Route path="/viewbus" element={<ViewBus />} /> */}

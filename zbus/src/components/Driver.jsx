@@ -38,10 +38,10 @@ let driverreg =  (e)=> {
    
     <ul className="list-group">
   <li className="list-group-item disabled">BUSES login</li>
-  <li className="list-group-item"><button className="btn btn-link" style={{ fontSize: "14pt" }} onClick={driverreg} value={"BUS 1/"}>BUS 1</button></li>
-  <li className="list-group-item"><button className="btn btn-link" style={{ fontSize: "14pt" }} onClick={driverreg} value={"BUS 2/"}>BUS 2</button></li>
-  <li className="list-group-item"><button className="btn btn-link" style={{ fontSize: "14pt" }} onClick={driverreg} value={"BUS 3/"}>BUS 3</button></li>
-  <li className="list-group-item"><button className="btn btn-link" style={{ fontSize: "14pt" }} onClick={driverreg} value={"BUS 4/"}>BUS 4</button></li>
+  <li className="list-group-item"><button className="btn btn-link" style={{ fontSize: "14pt" }} onClick={driverreg} value={"BUS 1"}>BUS 1</button></li>
+  <li className="list-group-item"><button className="btn btn-link" style={{ fontSize: "14pt" }} onClick={driverreg} value={"BUS 2"}>BUS 2</button></li>
+  <li className="list-group-item"><button className="btn btn-link" style={{ fontSize: "14pt" }} onClick={driverreg} value={"BUS 3"}>BUS 3</button></li>
+  <li className="list-group-item"><button className="btn btn-link" style={{ fontSize: "14pt" }} onClick={driverreg} value={"BUS 4"}>BUS 4</button></li>
 </ul>
 // 
  );

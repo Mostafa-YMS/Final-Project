@@ -1,5 +1,5 @@
 import { Marker } from "react-map-gl";
-import img from "../img/bus.svg";
+import img from "../img/station.svg";
 
 // const pop = {
 //   longitude: 31.2852,

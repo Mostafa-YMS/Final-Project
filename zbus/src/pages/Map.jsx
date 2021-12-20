@@ -6,12 +6,21 @@ import BusesContext from "../context/BusesContext";
 export const Map = ()=> {
   let { getlocations } = useContext(BusesContext);
   const [viewport, setViewport] = useState({
+    width: 900,
+    height: 900,
     latitude: 30.0778,
     longitude: 31.2852,
     zoom: 1
   })
-  // <button className="btn btn-link" style={{ fontSize: "14pt" }} onClick={getlocations} >get buses locations</button>
-  return (<MainMap  viewport={viewport} auto={true} width={"60%"} setViewport={setViewport}/>);
+  
+  return (<>
+  <button className="btn btn-warning" style={{ fontSize: "14pt" }} onClick={getlocations} >get buses locations</button>
+  
+  <br /> <br /> <br /> 
+  <MainMap  viewport={viewport} auto={true} width={"60%"} setViewport={setViewport}/>
+  
+  
+  </>);
 }
 
 // import { useState } from "react";

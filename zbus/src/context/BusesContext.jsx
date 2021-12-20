@@ -11,7 +11,7 @@ export const LocationGet = ({children}) => {
     let [buses, setbus] = useState()
         let getlocations = async (e )=> {
            
-                let response = await fetch('http://127.0.0.1:8000/mapapi/detial/BUS%201/')
+                let response = await fetch('http://127.0.0.1:8000/mapapi/get/')
                 .then(isready=true);
 
                 const data = await response.json();

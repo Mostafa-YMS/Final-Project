@@ -6,7 +6,8 @@ export const useGetDriver = () => {
   const apiContext = useContext(ApiContext);
 
   return async () => {
-    const { data } = await apiContext.get("/mapapi/detial/BUS 2");
+    const { data } = await apiContext.get("mapapi/post/");
     return data;
   };
 };
+// mapapi/post/ for post

@@ -44,16 +44,16 @@ import { FlyToInterpolator } from 'deck.gl';
 
            stationsData.filter((station)=>
                       station.line === line.id ).forEach( (station)=>{
-                           if(station.station==from ){
+                           if(station.station===from ){
                             x=line.line }
 
-                           if(station.station==to ){
+                           if(station.station===to ){
                             y=line.line }
                       
                           })
                         })} 
                         
-                if (x == y ) {
+                if (x === y ) {
               { document.getElementById("line").innerHTML="take line :" + x }
               
                    }
@@ -61,11 +61,11 @@ import { FlyToInterpolator } from 'deck.gl';
                   else{
                                { document.getElementById("line").innerHTML="There is no direct line "}
                   } 
-                 if (from=="" || to== "" ){
+                 if (from==="" || to=== "" ){
                       { document.getElementById("line").innerHTML=""}
                  }
 
-                  if (from == to ){
+                  if (from === to ){
                       { document.getElementById("line").innerHTML="please choose different Stations"}
                  }
 
@@ -78,7 +78,7 @@ import { FlyToInterpolator } from 'deck.gl';
 
   <div style={{ float: "right", height: "500px", width: "900px", margin: "50px", padindLeft: "100px"  }} >
 
-          <MainMap viewport={viewport} width="90%" setViewport={setViewport} />
+          <MainMap viewport={viewport} setViewport={setViewport} />
        
   </div>
      

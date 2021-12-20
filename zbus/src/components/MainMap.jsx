@@ -1,11 +1,18 @@
 import React from "react";
 import ReactMapGL, { NavigationControl, GeolocateControl } from "react-map-gl";
 import { Stations } from "../components";
-import { PathLayer } from "@deck.gl/layers";
-import { FlyToInterpolator } from "@deck.gl/core";
 import { Lines } from "./Lines";
-import { Bus1 } from './Bus1';
+import { BusLocations } from './BusLocations';
+
 export const MainMap = (props) => {
+  // const [buses, setBuses] = useState([]);
+  //   const getBuses = useGetDriver();
+    
+  //   useEffect(() => {
+  //       getBuses().then(setBuses);
+  //   }, []);
+  //   console.log(buses);
+  
   const MAPBOX_TOKEN =
     "pk.eyJ1IjoibW9oYW1lZGFtaW4wMDAwMCIsImEiOiJja3gwZnJiazkwczRhMnJwenduZ2ZkN2x6In0.HafaYHRDf0lGzVMq3k318w";
 
@@ -34,8 +41,9 @@ export const MainMap = (props) => {
       <div style={{ position: "absolute", right: 30, top: 0, zIndex: 1 }}>
         <NavigationControl></NavigationControl>
       </div>
-      <Bus1 />
+      {/* <Bus1 /> */}
       <Stations />
+      <BusLocations/>
       <Lines />
     </ReactMapGL>
   );

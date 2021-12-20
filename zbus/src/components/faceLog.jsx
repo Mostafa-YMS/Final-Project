@@ -1,9 +1,3 @@
-
-
-//npm install react-facebook-login
-//npm install react-dom
-
-
 import React from 'react';
 import FacebookLogin from 'react-facebook-login';
 

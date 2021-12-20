@@ -102,7 +102,7 @@ import { FlyToInterpolator } from 'deck.gl';
                             transitionInterpolator: new FlyToInterpolator()
                           })
                         }} >
-                      >
+                      
                         {station.station}</button>
                   ))}
                 </div> 

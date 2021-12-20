@@ -24,9 +24,11 @@ import { FlyToInterpolator } from 'deck.gl';
 
 
   const [viewport, setViewport] = useState({
+    width: 900,
+    height: 500,
     latitude: 30.0778,
     longitude: 31.2852,
-    zoom: 1
+    zoom: 1 ,
   })
     
     let x = ""
@@ -73,6 +75,7 @@ import { FlyToInterpolator } from 'deck.gl';
   <div style={{ float: "right", height: "500px", width: "900px", margin: "50px", padindLeft: "100px"  }} >
 
           <MainMap viewport={viewport} width="50%" setViewport={setViewport} />
+       
   </div>
      
 
@@ -137,6 +140,9 @@ import { FlyToInterpolator } from 'deck.gl';
     <h3 id="line"> </h3>
   </div>
 
+
+ 
+     
 
       </>
 );

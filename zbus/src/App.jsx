@@ -13,9 +13,13 @@ import React from "react";
 import "./styles/App.css";
 import {Lines_Stations} from "./pages/lines_Stations"  ;
 
+
+
+
 function App() {
-  const [mode, setState] = useState("login");
  
+  
+  
 
   return (
     <>

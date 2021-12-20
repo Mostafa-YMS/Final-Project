@@ -65,6 +65,10 @@ import { FlyToInterpolator } from 'deck.gl';
                       { document.getElementById("line").innerHTML=""}
                  }
 
+                  if (from == to ){
+                      { document.getElementById("line").innerHTML="please choose different Stations"}
+                 }
+
                   }
 
 
@@ -74,7 +78,7 @@ import { FlyToInterpolator } from 'deck.gl';
 
   <div style={{ float: "right", height: "500px", width: "900px", margin: "50px", padindLeft: "100px"  }} >
 
-          <MainMap viewport={viewport} width="50%" setViewport={setViewport} />
+          <MainMap viewport={viewport} width="90%" setViewport={setViewport} />
        
   </div>
      

@@ -84,13 +84,25 @@ import { FlyToInterpolator } from 'deck.gl';
           <div style={{float:"left" , paddingTop:"30px" , paddingLeft:"37px"}} >
            <span className="dropdown" style={{padding:"10px" , margin:"10px" }} >
             <span  id={line.id}  key={line.id}>
-            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">  
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
+           
+
                  {line.line}</button> 
                 <div className="dropdown-menu" style={{padding:"10px" , margin:"10px" , paddingLeft:"20px" }}>
 
                     { stationsData.filter((station)=>
                       station.line === line.id ).map( (station)=>(
-                      <button className="dropdown-item" key={station.id} >
+                      <button className="dropdown-item" key={station.id} 
+                       onClick={() => {
+                          console.log(station);
+                          setViewport({
+                            latitude: station.st_latitude, longitude: station.st_longitude, zoom: 17, pitch: 0,
+                            bearing: 0,
+                            transitionDuration: 1000,
+                            transitionInterpolator: new FlyToInterpolator()
+                          })
+                        }} >
+                      >
                         {station.station}</button>
                   ))}
                 </div> 

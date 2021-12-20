@@ -5,7 +5,7 @@ export const useDriver = () => {
   const apiContext = useContext(ApiContext);
 
   return async (post) => {
-    return await apiContext.post("/mapapi/post/", post);
+    return await apiContext.post("/mapapi/update/"+post.name+"/", post);
     
   };
 };  

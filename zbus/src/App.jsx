@@ -1,19 +1,14 @@
-import { Route, Routes, Redirect } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
-import { useState } from "react";
-import { Loginform, RegisterForm ,Driver} from "./components";
-import { LoginRegister } from "./pages/LoginRegister";
-// import { Home } from "./pages/Home";
+import { Route, Routes } from "react-router-dom";
+import { Loginform, RegisterForm, Driver, Navbar} from "./components";
 import Home from "./pages/Home";
 import PrivateRoute from "./utils/PrivateRoute";
-import { AuthProvider } from "./context/AuthContext";
 import { LocationGet } from "./context/BusesContext";
-import { BusLocation } from "./components/BusLocation";
-import { Map, Profile ,Buses,ViewBus} from "./pages";
+import { Map, Profile, Lines_Stations, LoginRegister, Buses,ViewBus} from "./pages";
 import LoginRoute from "./utils/LoginRoute";
-import React from "react";
+import React, { useContext } from "react";
+import AuthContext from "./context/AuthContext";
 import "./styles/App.css";
-import { Lines_Stations } from './pages/lines_Stations';
+
 
 
 
@@ -21,14 +16,13 @@ import { Lines_Stations } from './pages/lines_Stations';
 function App() {
  
   
+  let { user, logOut } = useContext(AuthContext);
   
 
   return (
     <>
-      <AuthProvider>
       <LocationGet>
-        <Navbar />
-        
+      {user ? <Navbar /> : ""}
         <Routes>
           <Route
             path="/login"
@@ -49,12 +43,10 @@ function App() {
           <Route path="/lines" element={<Lines_Stations/>} />
           ######
           {/* <Route path="/viewbus" element={<ViewBus />} /> */}
-          <Route path="/location" element={<BusLocation />} />
           <Route path="/driver" element={<Driver />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
         </LocationGet> 
-      </AuthProvider>
     </>
   );
 }

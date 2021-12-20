@@ -75,19 +75,11 @@ export const Navbar = () => {
                 Profile
               </a>
             </li>
-            {user ? (
               <li className="nav-item">
                 <a className="nav-link" href="/login" onClick={logOut}>
                   logout
                 </a>
               </li>
-            ) : (
-              <li className="nav-item">
-                <a className="nav-link" href="/login" onClick={logOut}>
-                  login
-                </a>
-              </li>
-            )}
           </ul>
         </div>
       </div>

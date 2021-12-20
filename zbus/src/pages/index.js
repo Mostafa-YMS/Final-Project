@@ -1,4 +1,4 @@
-export * from "./LinesStops"
+export * from "./lines_Stations"
 export * from "./Map"
 export * from "./User"
 export * from "./LoginRegister"

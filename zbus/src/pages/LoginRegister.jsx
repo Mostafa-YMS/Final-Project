@@ -16,8 +16,14 @@ export const LoginRegister = (props) => {
         <div className="row">
           <div className="col-6 justify-content-center align-self-center">
             {props.mode}
-            <GooGle/>
-            <FaceLog/>
+            <div className="row">
+              <div className="col-6">
+                <FaceLog/>
+              </div>
+              <div className="col-6">
+                <GooGle/>
+              </div>
+            </div>
           </div>
           <div className="col-6 justify-content-center align-self-center">
           </div>

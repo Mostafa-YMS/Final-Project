@@ -1,5 +1,5 @@
 import "../styles/home.css";
-import img from "../img/logger.svg";
+import img from "../img/logger.png";
 import GooGle from "../components/GoogleLog"
 import FaceLog from "../components/faceLog"
 

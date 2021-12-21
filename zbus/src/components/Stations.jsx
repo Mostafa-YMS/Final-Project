@@ -1,73 +1,36 @@
 import { Marker } from "react-map-gl";
 import img from "../img/bus.svg";
-
-// const pop = {
-//   longitude: 31.2852,
-//   latitude: 30.0778,
-//   offsetLeft: 0.1526,
-//   offsetTop: 0.1542,
-// };
-
-const pop1 = { longitude: 31.2454, latitude: 30.0805 };
-
-const pop2 = { longitude: 31.245, latitude: 30.071 };
-
-const pop3 = { longitude: 31.2469, latitude: 30.0522 };
-
-const pop4 = { longitude: 31.2425, latitude: 30.057 };
-
-const pop5 = { longitude: 31.2648, latitude: 30.0689 };
-
-const pop6 = { longitude: 31.18406, latitude: 30.46249 };
-
-const pop7 = { longitude: 31.23542, latitude: 30.04416 };
-
-const pop8 = { longitude: 31.13438, latitude: 30.54566 };
-
+import { useEffect , useState } from "react";
+import { useLines, useStops } from '../hooks/linesStations.jsx';
 
 
 export const Stations = () => {
+
+  const [stationsData, setStationsData] = useState([]);
+  const getstations = useStops();
+
+  useEffect(() => {
+    getstations().then(setStationsData);
+  }, []);
+
   return (
     <>
-      <Marker {...pop1}>
-        <img src={img} />
-        <p style={{ color: "white" }}> روض الفرج</p>
-      </Marker>
 
-      <Marker {...pop2}>
-        <img src={img} />
-        <p style={{ color: "white" }}>حى شبرا </p>
-      </Marker>
 
-      <Marker {...pop3}>
-        <img src={img} />
-        <p style={{ color: "white" }}> العتبه</p>
-      </Marker>
 
-      <Marker {...pop4}>
-        <img src={img} />
-        <p style={{ color: "white" }}>عرابى </p>
-      </Marker>
+     
+                 { stationsData.map((station)=>(
 
-      <Marker {...pop5}>
-        <img src={img} />
-        <p style={{ color: "white" }}>غمره </p>
-      </Marker>
+   
+            <Marker longitude={station.st_longitude} latitude={station.st_latitude} >
+            <img src={img} alt="station"/>
+            <p style={{ color: "white" }}> {station.station}</p>
+            </Marker>
 
-      <Marker {...pop6}>
-        <img src={img} />
-        <p style={{ color: "white" }}>Banha</p>
-      </Marker>
+                 ))}  
 
-      <Marker {...pop7}>
-        <img src={img} />
-        <p style={{ color: "white" }}>Cairo</p>
-      </Marker>
 
-      <Marker {...pop8}>
-        <img src={img} />
-        <p style={{ color: "white" }}>Qwysna</p>
-      </Marker>
+
     </>
   );
 };

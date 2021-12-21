@@ -20,3 +20,13 @@ export const useStops = () => {
     return data;
   };
 };
+
+
+export const useCords = () => {
+  const apiContext = useContext(ApiContext);
+
+  return async () => {
+    const { data } = await apiContext.get("/cords");
+    return data;
+  };
+};

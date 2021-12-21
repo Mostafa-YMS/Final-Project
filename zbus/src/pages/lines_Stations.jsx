@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { MainMap } from "../components";
 import { useLines, useStops } from '../hooks/linesStations.jsx';
 import { FlyToInterpolator } from 'deck.gl';
+import { Marker } from "react-map-gl";
+import img from "../img/bus.svg";
 
+  export const Lines_Stations = () => {
 
- export const Lines_Stations = () => {
 
   const [stationsData, setStationsData] = useState([]);
   const getstations = useStops();
@@ -14,6 +16,7 @@ import { FlyToInterpolator } from 'deck.gl';
   }, []);
 
 
+
   const [linesData, setlinesData] = useState([]);
   const getlines = useLines();
 
@@ -21,6 +24,8 @@ import { FlyToInterpolator } from 'deck.gl';
     getlines().then(setlinesData);
   }, []);
 
+
+  
 
 
   const [viewport, setViewport] = useState({
@@ -33,7 +38,7 @@ import { FlyToInterpolator } from 'deck.gl';
     
     let x = ""
     let y = ""
-
+   
     const [from , setfrom] = useState ("")
     const [to, setto] = useState ("")
     
@@ -71,6 +76,11 @@ import { FlyToInterpolator } from 'deck.gl';
 
                   }
 
+          
+    
+        // let pos={}
+        // let stations_coordinates = []       
+ 
 
   return (
 
@@ -155,11 +165,36 @@ import { FlyToInterpolator } from 'deck.gl';
    <br/>  <br/> <br/> <br/> <br/> <br/>
     <h3 id="line"> </h3>
   </div>
+              
+{/*               
+                 { stationsData.map((station)=>(
 
+   
+            <Marker longitude={station.st_longitude} latitude={station.st_latitude} >
+            <img src={img} alt="station"/>
+            <p style={{ color: "white" }}> {station.station}</p>
+            </Marker>
 
- 
-     
+                 ))}   */}
 
-      </>
+  </>  
 );
 }
+
+
+      //   { stationsData.map((station)=>{
+
+      //      pos = {longitude:station.st_longitude, latitude:station.st_latitude } ;
+      //      stations_coordinates.push(pos) 
+
+      //  {console.log(stations_coordinates)}
+          
+      //  { for (i=0 ; i< stations_coordinates.length ; i++){
+
+      //           <Marker {(stations_coordinates[i])}>
+      //           <img src={img} />
+      //           <p style={{ color: "white" }}>Cairo</p>
+      //           </Marker>
+      //     })}
+
+   

@@ -1,20 +1,34 @@
 import "../styles/home.css";
-import img from "../img/Main.svg";
+import img from "../img/logger.png";
+import GooGle from "../components/GoogleLog"
+import FaceLog from "../components/faceLog"
+
+
 
 export const LoginRegister = (props) => {
+  {document.body.style.backgroundImage = `url(${img})`
+  document.body.style.backgroundRepeat = `no-repeat`
+  document.body.style.backgroundSize = `cover`
+}
   return (
-    <>
+    <div className="logger">
       <div className="container" style={{ marginTop: "50px" }}>
         <div className="row">
           <div className="col-6 justify-content-center align-self-center">
             {props.mode}
+            <div className="row">
+              <div className="col-6">
+                <FaceLog/>
+              </div>
+              <div className="col-6">
+                <GooGle/>
+              </div>
+            </div>
           </div>
           <div className="col-6 justify-content-center align-self-center">
-            <img src={img} className="imlink" />
-            <h1 className="text-center display-1">UBus</h1>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

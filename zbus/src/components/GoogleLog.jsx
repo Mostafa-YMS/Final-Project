@@ -52,6 +52,7 @@
           clientId={clientId}
           onLogoutSuccess={handleLogoutSuccess}
           onFailure={handleLogoutFailure}
+           style={{width: "94%", margin: '16px'}}
         />
         <pre>{JSON.stringify(user, null, 2)}</pre>
       </div > :
@@ -63,7 +64,6 @@
           onRequest={handleRequest}
           onAutoLoadFinished={handleAutoLoadFinished}
           isSignedIn={true}
-          buttonStyle={{width: "94%", margin: '16px'}}
         />}
     </div>
 

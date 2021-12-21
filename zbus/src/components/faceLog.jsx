@@ -15,7 +15,7 @@ class FaceLog extends React.Component {
         scope="public_profile,user_friends,user_actions.books"
         callback={this.responseFacebook}
         size='small'
-        buttonStyle={{width: "34%", margin: '15px'}}
+        buttonStyle={{marginTop: "40px"}}
       />
     )
   }

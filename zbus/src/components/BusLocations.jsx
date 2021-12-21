@@ -17,7 +17,7 @@ export const BusLocations = ()=>{
         {buses.map((bus)=>(
             <Marker latitude={bus.latitude} longitude={bus.longitude} key={bus.id} >
                 <img src={img}/>
-                <p style={{color: ""}}>{bus.name}</p>
+                <p style={{color: "white"}}>{bus.name}</p>
             </Marker>
         ))}
         

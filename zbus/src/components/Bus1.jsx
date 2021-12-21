@@ -23,7 +23,7 @@ export const Bus1 = ()=> {
    }
    return(
         <>
-        <Marker {...bus4}>
+        <Marker longitude={bus4.longitude} latitude={bus4.latitude}>
            <img src={img}/>
         </Marker>
         <Marker {...bus3}>
@@ -38,4 +38,8 @@ export const Bus1 = ()=> {
         </>
     )
         
-}
+ }
+// {"name":"bus1",
+// "longitude": "29.963376",
+// "latitude": "31.084125",
+// "driver":"mostafayousef"}

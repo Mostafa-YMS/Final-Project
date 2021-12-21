@@ -1,8 +1,7 @@
 import { Marker } from "react-map-gl";
-import img from "../img/bus.svg";
 import { useEffect , useState } from "react";
 import { useLines, useStops } from '../hooks/linesStations.jsx';
-
+import img from "../img/station.svg";
 
 export const Stations = () => {
 
@@ -15,10 +14,6 @@ export const Stations = () => {
 
   return (
     <>
-
-
-
-     
                  { stationsData.map((station)=>(
 
    
@@ -27,10 +22,7 @@ export const Stations = () => {
             <p style={{ color: "white" }}> {station.station}</p>
             </Marker>
 
-                 ))}  
-
-
-
+                 ))} 
     </>
   );
 };

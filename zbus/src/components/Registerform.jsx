@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import GooGle from "./GoogleLog"
-import FaceLog from "./faceLog"
 
 export const RegisterForm = (props) => {
   const [email, setEmail] = useState("");
@@ -34,7 +32,7 @@ export const RegisterForm = (props) => {
   }
   return (
     <div className="App">
-      <h1>Register</h1>
+      <h1 style={{marginLeft: "40px"}}>Register</h1>
       <input
         type="text"
         onChange={(e) => setFname(e.target.value)}
@@ -89,8 +87,6 @@ export const RegisterForm = (props) => {
          </p>
          <button type="button" className="btn btn-link" style={{fontSize:"14pt"}} onClick={handleMode} > Login</button>
        </div>
-        <GooGle/>
-        <FaceLog/>
     </div>
   );
 };

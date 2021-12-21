@@ -64,7 +64,6 @@
           onRequest={handleRequest}
           onAutoLoadFinished={handleAutoLoadFinished}
           isSignedIn={true}
-           style={{width: "94%", margin: '16px'}}
         />}
     </div>
 

@@ -2,9 +2,14 @@ import { useState, useEffect } from "react";
 import { MainMap } from "../components";
 import { useLines, useStops } from '../hooks/linesStations.jsx';
 import { FlyToInterpolator } from 'deck.gl';
+import img from "../img/map.png";
 
 
  export const Lines_Stations = () => {
+  {document.body.style.backgroundImage = `url(${img})`
+  document.body.style.backgroundRepeat = `no-repeat`
+  document.body.style.backgroundSize = `cover`
+}
 
   const [stationsData, setStationsData] = useState([]);
   const getstations = useStops();

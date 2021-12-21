@@ -1,6 +1,22 @@
 import { Layer, Source } from "react-map-gl";
+import {  useCords } from '../hooks/linesStations.jsx';
+import { useState , useEffect } from "react";
 
 export const Lines = () => {
+
+   const [cords, setCords] = useState([]);
+  const getCords = useCords();
+
+  useEffect(() => {
+    getCords().then(setCords);
+  }, []);
+
+
+
+
+
+  
+
   const cord2 = [
     [31.18406, 30.46249],
     [31.18527, 30.46172],

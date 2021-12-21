@@ -48,8 +48,7 @@
 import { useNavigate } from "react-router-dom";
 import React, { useContext } from "react";
 import AuthContext from "../context/AuthContext";
-import GooGle from "./GoogleLog"
-import FaceLog from "./faceLog"
+
 
 export const Loginform = (props) => {
   let { loginUser } = useContext(AuthContext);
@@ -98,8 +97,7 @@ export const Loginform = (props) => {
           Create an account
         </button>
       </div>
-        <GooGle/>
-        <FaceLog/>
+
     </div>
   );
 };

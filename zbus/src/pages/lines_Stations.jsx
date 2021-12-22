@@ -92,17 +92,17 @@ export const Lines_Stations = (props) => {
     { station: "please choose line " },
   ]);
   const xy = (e) => {
-    const choose = linesData.filter((line) => line.line == e.target.value)[0];
+    const choose = linesData.filter((line) => line.line === e.target.value)[0];
 
     {
-      setstationss(stationsData.filter((station) => station.line == choose.id));
+      setstationss(stationsData.filter((station) => station.line === choose.id));
     }
   };
 
   return (
     <div className="row">
       <div className="col-4 row justify-content-center align-self-center">
-        <div class="dropdown m-3 d-inline">
+        <div className="dropdown m-3 d-inline">
           <button
             className=" dropdown-toggle   "
             className="btn btn-primary"
@@ -114,10 +114,10 @@ export const Lines_Stations = (props) => {
           >
             Lines
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
             {linesData.map((line) => (
               <button
-                class="dropdown-item"
+                className="dropdown-item"
                 type="button"
                 id={line.id}
                 value={line.line}
@@ -141,14 +141,14 @@ export const Lines_Stations = (props) => {
           >
             stations
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
             {stationss.map((station) => (
               <button
-                class="dropdown-item"
+                className="dropdown-item"
                 type="button"
                 onClick={() => {
                   {
-                    if (station.station != "please choose line ") {
+                    if (station.station !== "please choose line ") {
                       setViewport({
                         latitude: station.st_latitude,
                         longitude: station.st_longitude,
@@ -172,9 +172,9 @@ export const Lines_Stations = (props) => {
         
         <div className="">
           <hr />
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <label className="input-group-text" htmlFor="inputGroupSelect01">
                 from
               </label>
             </div>
@@ -182,7 +182,7 @@ export const Lines_Stations = (props) => {
               onChange={(e) => {
                 setfrom(e.target.value);
               }}
-              class="custom-select"
+              className="custom-select"
               id="inputGroupSelect01"
             >
               <option selected>Choose Station</option>
@@ -191,9 +191,9 @@ export const Lines_Stations = (props) => {
               ))}
             </select>
           </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <label className="input-group-text" htmlFor="inputGroupSelect01">
                 to
               </label>
             </div>
@@ -201,7 +201,7 @@ export const Lines_Stations = (props) => {
               onChange={(e) => {
                 setto(e.target.value);
               }}
-              class="custom-select"
+              className="custom-select"
               id="inputGroupSelect01"
             >
               <option selected>Choose Station</option>
@@ -231,7 +231,7 @@ export const Lines_Stations = (props) => {
         </div>
       </div>
       <div className="col-8">
-        <MainMap viewport={viewport} setViewport={setViewport} />
+        <MainMap viewport={viewport} setViewport={setViewport}/>
       </div>
     </div>
   );

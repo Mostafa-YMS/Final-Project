@@ -23,7 +23,7 @@ export const Map = (props) => {
   return (
     <>
       <div className="container p-0">
-        <MainMap viewport={viewport} auto={true} setViewport={setViewport} />
+        <MainMap viewport={viewport} auto={true} setViewport={setViewport}/>
       </div>
     </>
   );

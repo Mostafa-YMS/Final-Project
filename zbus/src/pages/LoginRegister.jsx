@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import "../styles/home.css";
 import img from "../img/logger.png";
 import GooGle from "../components/GoogleLog"

@@ -37,7 +37,7 @@ function App() {
               <LoginRoute child={<LoginRegister mode={<RegisterForm />} />} />
             }
           />
-          <Route path="/test" element={<PrivateRoute child={<Home />} />} />
+          <Route path="/home" element={<Home />}  />
           <Route path="/" element={<PrivateRoute child={<Map setactive={setactive}/>} />} />
           <Route path="/profile" element={<PrivateRoute child={<Profile setactive={setactive}/>} />} />
           {/* <Route path="/lines" element={<PrivateRoute child={<Lines_Stations/>} />} /> */}

@@ -1,41 +1,43 @@
-
-import React, {useContext} from 'react'
-import AuthContext from '../context/AuthContext'
+/* eslint-disable no-lone-blocks */
+import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import img from "../img/home.jpg";
 const Home = () => {
-  let {user}= useContext(AuthContext)
+
+  {
+    document.body.style.backgroundImage = `url(${img})`
+    document.body.style.backgroundRepeat = `no-repeat`
+    document.body.style.backgroundSize = `cover`
+  }
+  const navigate = useNavigate();
+  const Reg = () => {
+    navigate("/register");
+  };
+  const Log = () => {
+    navigate("/Login");
+  };
   return (
     <div>
-      
-      <h1>hello {user.username} to home</h1>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-6'>
+          <p style={{ color: "white",fontSize: "50pt"  }}> UBus</p>
+          
+        </div>
+        
+          <div className='col-6'>
+          <button className="btn btn-dark" onClick={Log} style={{ float: "right",display:"flex" }}>Login</button>
+          <button className="btn btn-secondary" onClick={Reg}  style={{ float: "right",display:"flex" }}>Register</button>
+          </div>
+        </div>
+      </div>
+      <br></br><br></br><br></br>
+      <h1 style={{ color: "white", textAlign: "center",fontFamily:"-moz-initial" }}>We take you throuh the ultimate journey</h1>
+
+
     </div>
   )
 }
 
 export default Home
 
-
-
-
-
-// import "../styles/home.css";
-// import img from "../img/Main.svg";
-// import { Loginform } from "../components";
-
-// export const Home = (props) => {
-  
-//   return (
-//     <>
-//       <div className="container">
-//         <div className="row">
-//           <div className="col-6">
-//               {props.mode}
-//           </div>
-//           <div className="col-6">
-//             <img src={img} className="imlink" />
-//             <h1 className="text-center display-1">UBus</h1>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };

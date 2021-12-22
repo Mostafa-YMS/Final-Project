@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export const RegisterForm = (props) => {
   const [email, setEmail] = useState("");
@@ -8,11 +8,11 @@ export const RegisterForm = (props) => {
   const [first_name, setFname] = useState("");
   const [last_name, setLname] = useState("");
   const [birth_date, setBirthday] = useState("");
-  
-  const navigate = useNavigate()
-     const handleMode = ()=> {
-       navigate("/login")
-     }
+
+  const navigate = useNavigate();
+  const handleMode = () => {
+    navigate("/login");
+  };
 
   async function signup() {
     let item = { email, username, first_name, last_name, password, birth_date };
@@ -28,11 +28,10 @@ export const RegisterForm = (props) => {
     });
     result = await result.json();
     console.warn(result);
-    navigate("/login")
+    navigate("/login");
   }
   return (
     <div className="App">
-      <h1 style={{marginLeft: "40px"}}>Register</h1>
       <input
         type="text"
         onChange={(e) => setFname(e.target.value)}
@@ -74,19 +73,25 @@ export const RegisterForm = (props) => {
         className="form-control"
         placeholder="birth"
       />
-       <button
-             className="btn btn-primary mt-3 mb-3"
-             style={{width:'100%'}}
-             onClick={signup}
-           >
-             Register
-           </button>
-       <div className="m-6">
-         <p className="d-inline">
-           Already have account ?
-         </p>
-         <button type="button" className="btn btn-link" style={{fontSize:"14pt"}} onClick={handleMode} > Login</button>
-       </div>
+      <button
+        className="btn btn-primary mt-3 mb-3"
+        style={{ width: "100%" }}
+        onClick={signup}
+      >
+        Register
+      </button>
+      <div className="m-6">
+        <p className="d-inline">Already have account ?</p>
+        <button
+          type="button"
+          className="btn btn-link"
+          style={{ fontSize: "14pt" }}
+          onClick={handleMode}
+        >
+          {" "}
+          Login
+        </button>
+      </div>
     </div>
   );
 };

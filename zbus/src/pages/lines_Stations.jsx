@@ -3,12 +3,16 @@ import { MainMap } from "../components";
 import { useLines, useStops } from '../hooks/linesStations.jsx';
 import { FlyToInterpolator } from 'deck.gl';
 import { Marker } from "react-map-gl";
-import img from "../img/bus.svg";
 import { Lines } from './../components/Lines';
 import { Stations } from './../components/Stations';
+import img from "../img/map.png";
 
-  export const Lines_Stations = () => {
 
+ export const Lines_Stations = () => {
+  {document.body.style.backgroundImage = `url(${img})`
+  document.body.style.backgroundRepeat = `no-repeat`
+  document.body.style.backgroundSize = `cover`
+}
 
   const [stationsData, setStationsData] = useState([]);
   const getstations = useStops();
@@ -18,7 +22,6 @@ import { Stations } from './../components/Stations';
   }, []);
 
 
-
   const [linesData, setlinesData] = useState([]);
   const getlines = useLines();
 
@@ -26,8 +29,6 @@ import { Stations } from './../components/Stations';
     getlines().then(setlinesData);
   }, []);
 
-
-  
 
 
   const [viewport, setViewport] = useState({
@@ -40,7 +41,7 @@ import { Stations } from './../components/Stations';
    
     let x = ""
     let y = ""
-   
+
     const [from , setfrom] = useState ("")
     const [to, setto] = useState ("")
     
@@ -222,11 +223,15 @@ import { Stations } from './../components/Stations';
   </div>
   <button onClick={show} className="btn btn-primary"> showLine </button>
    <br/>  <br/> <br/> <br/> <br/> <br/>
-    <h3 id="line"> </h3>
+    <div  style={{backgroundColor:"grey" ,color:"blue" ,width:"450px" , height:"120px"}}> <h3  style={{marginTop:"40px" , position:"absolute"}} id="line"></h3> </div>
   </div>
               
 
-  </>  
+
+ 
+     
+
+      </>
 );
 }
 

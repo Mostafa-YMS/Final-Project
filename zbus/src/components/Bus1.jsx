@@ -18,7 +18,7 @@ export const Bus1 = ()=> {
     bus4={longitude:buses[0].longitude,latitude:buses[0].latitude}
     bus3={longitude:buses[1].longitude,latitude:buses[1].latitude}
     bus1={longitude:buses[2].longitude,latitude:buses[2].latitude}
-    // bus2={longitude:buses[3].longitude,latitude:buses[3].latitude}
+    bus2={longitude:buses[3].longitude,latitude:buses[3].latitude}
 //    console.log("prop?",x,w,bus1,bus2)
    }
    return(
@@ -26,7 +26,7 @@ export const Bus1 = ()=> {
         <Marker longitude={bus4.longitude} latitude={bus4.latitude}>
            <img src={img}/>
         </Marker>
-        {/* <Marker {...bus3}>
+        <Marker {...bus3}>
             <img src={img}/>
         </Marker>
         <Marker {...bus1}>
@@ -34,8 +34,12 @@ export const Bus1 = ()=> {
         </Marker>
         <Marker {... bus2}>
             <img src={img}/>
-        </Marker> */}
+        </Marker>
         </>
     )
         
-}
+ }
+// {"name":"bus1",
+// "longitude": "29.963376",
+// "latitude": "31.084125",
+// "driver":"mostafayousef"}

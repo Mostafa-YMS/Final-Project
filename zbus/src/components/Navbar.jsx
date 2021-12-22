@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
   let { user, logOut } = useContext(AuthContext);
   const [darkMode, setDarkMode] = React.useState(false);
 
@@ -49,12 +49,12 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <a className={`nav-link ${props.active ==="home" ? 'active':""}`} aria-current="page" href="/">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="lines">
+              <a className={`nav-link ${props.active ==="lines" ? 'active':""}`} href="lines">
                 Lines & Stops
               </a>
             </li>
@@ -70,8 +70,9 @@ export const Navbar = () => {
                 Dark Mode
               </a>
             </li>
-            <li className="nav-item {% block profile %} {% endblock %}">
-              <a className="nav-link" href="/Profile">
+            <li className="nav-item ">
+            
+              <a className={`nav-link ${props.active ==="profile" ? 'active':""}`}   href="/Profile">
                 Profile
               </a>
             </li>

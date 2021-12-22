@@ -7,25 +7,23 @@ import { Map, Profile, Lines_Stations, LoginRegister, DriverLogin, DriverHome }f
 import LoginRoute from "./utils/LoginRoute";
 import React, { useContext } from "react";
 import AuthContext from "./context/AuthContext";
-
+import { useState } from "react";
 import { Driverprovider} from "./context/DriverContext";
 import "./styles/App.css";
 
 
 
-
-
 function App() {
- 
-  
+  const [active , setactive] = useState (null);
+
+
   let { user, logOut } = useContext(AuthContext);
   
-
   return (
     <>
       <LocationGet>
       <Driverprovider>
-      {user ? <Navbar /> : ""}
+      {user ? <Navbar active={active} /> : ""}
         <Routes>
           <Route
             path="/login"
@@ -40,16 +38,15 @@ function App() {
             }
           />
           <Route path="/test" element={<PrivateRoute child={<Home />} />} />
-          <Route path="/" element={<PrivateRoute child={<Map/>} />} />
-          <Route path="/profile" element={<PrivateRoute child={<Profile/>} />} />
+          <Route path="/" element={<PrivateRoute child={<Map setactive={setactive}/>} />} />
+          <Route path="/profile" element={<PrivateRoute child={<Profile setactive={setactive}/>} />} />
           {/* <Route path="/lines" element={<PrivateRoute child={<Lines_Stations/>} />} /> */}
-          <Route path="/lines" element={<Lines_Stations/>} />
+          <Route path="/lines" element={<Lines_Stations setactive={setactive}/>} />
           #####
           <Route path="/driver" element={<Driver />} />
-          <Route path="/profile" element={<Profile />} />
       
-         <Route path="/driverlogin" element={<DriverLogin />} />
-         <Route path="/driverhome" element={<DriverHome />} />
+        <Route path="/driverlogin" element={<DriverLogin />} />
+        <Route path="/driverhome" element={<DriverHome />} />
 
         </Routes>
         </Driverprovider>

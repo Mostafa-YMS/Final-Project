@@ -5,7 +5,7 @@ import { FlyToInterpolator } from 'deck.gl';
 import img from "../img/map.png";
 
 
- export const Lines_Stations = () => {
+ export const Lines_Stations = (props) => {
   {document.body.style.backgroundImage = `url(${img})`
   document.body.style.backgroundRepeat = `no-repeat`
   document.body.style.backgroundSize = `cover`
@@ -17,7 +17,7 @@ import img from "../img/map.png";
   useEffect(() => {
     getstations().then(setStationsData);
   }, []);
-
+  {props.setactive("lines")}
 
   const [linesData, setlinesData] = useState([]);
   const getlines = useLines();

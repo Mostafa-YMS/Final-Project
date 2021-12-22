@@ -13,15 +13,14 @@ export const AuthProvider = ({children}) => {
         let [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
         const navigate = useNavigate()
         // const history = useHistory()
-        let loginUser = async (e )=> {
+        let loginUser = async (username, password)=> {
 
-            e.preventDefault()
             let response = await fetch('http://127.0.0.1:8000/user/login', {
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json'
                 },
-                body:JSON.stringify({'username':e.target.username.value, 'password':e.target.password.value})// form is the target
+                body:JSON.stringify({'username':username, 'password':password})// form is the target
             }) 
             
             let data = await response.json()

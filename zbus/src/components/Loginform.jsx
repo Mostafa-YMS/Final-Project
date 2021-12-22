@@ -56,11 +56,12 @@ export const Loginform = (props) => {
   const handleMode = () => {
     navigate("/register");
   };
-  const confirmer = ()=>{
+  const confirmer = (e)=>{
+    e.preventDefault()
     const p1 = document.getElementById('user').value
     const p2 = document.getElementById('pass').value
     if (p1 && p2){
-      loginUser()
+      loginUser(p1, p2)
     }else{
       document.getElementById("announce1").innerHTML='Enter Username and Password'
     }
@@ -68,7 +69,7 @@ export const Loginform = (props) => {
   return (
     <div>
       <small id="announce1" style={{color: "darkred"}}></small>
-      <form>
+      <form onSubmit={confirmer} id="loginform">
         <div className="form-group m-3">
           <input
             type="text"
@@ -84,14 +85,13 @@ export const Loginform = (props) => {
             name="password"
             className="form-control"
             placeholder="Enter Password"
+          id="pass"
           />
         </div>
         <button
-          onClick={confirmer}
-          type="button"
+          type="submit"
           className="btn btn-primary m-3"
           style={{ width: "94%" }}
-          id="pass"
         >
           Login
         </button>

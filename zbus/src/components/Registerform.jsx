@@ -8,6 +8,7 @@ export const RegisterForm = (props) => {
   const [first_name, setFname] = useState("");
   const [last_name, setLname] = useState("");
   const [birth_date, setBirthday] = useState("");
+  
 
   const navigate = useNavigate();
   const handleMode = () => {
@@ -15,6 +16,21 @@ export const RegisterForm = (props) => {
   };
 
   async function signup() {
+    let conf = false
+    let len = false
+    const p1 = document.getElementById('pass1').value
+    const p2 = document.getElementById('pass2').value
+    if (p1 === p2){
+      conf = true
+    } else{
+      document.getElementById("announce").innerHTML='password is not matching confirm password'
+    }
+    if (p1.length >= 8){
+      len = true
+    }else{
+      document.getElementById("announce").innerHTML='password is very short'
+    }
+    if(conf && len){
     let item = { email, username, first_name, last_name, password, birth_date };
     console.warn(item);
 
@@ -29,9 +45,10 @@ export const RegisterForm = (props) => {
     result = await result.json();
     console.warn(result);
     navigate("/login");
-  }
+  }}
   return (
     <div className="App">
+      <small id="announce" style={{color: "darkred"}}></small>
       <input
         type="text"
         onChange={(e) => setFname(e.target.value)}
@@ -65,6 +82,14 @@ export const RegisterForm = (props) => {
         onChange={(e) => setPassword(e.target.value)}
         className="form-control"
         placeholder="password"
+        id="pass1"
+      />
+      <br />
+      <input
+        type="password"
+        className="form-control"
+        placeholder="confirm password"
+        id="pass2"
       />
       <br />
       <input
@@ -80,6 +105,7 @@ export const RegisterForm = (props) => {
       >
         Register
       </button>
+      <hr />
       <div className="m-6">
         <p className="d-inline">Already have account ?</p>
         <button
@@ -88,7 +114,6 @@ export const RegisterForm = (props) => {
           style={{ fontSize: "14pt" }}
           onClick={handleMode}
         >
-          {" "}
           Login
         </button>
       </div>

@@ -56,20 +56,29 @@ export const Loginform = (props) => {
   const handleMode = () => {
     navigate("/register");
   };
+  const confirmer = ()=>{
+    const p1 = document.getElementById('user').value
+    const p2 = document.getElementById('pass').value
+    if (p1 && p2){
+      loginUser()
+    }else{
+      document.getElementById("announce1").innerHTML='Enter Username and Password'
+    }
+  }
   return (
     <div>
-      <form onSubmit={loginUser}>
+      <small id="announce1" style={{color: "darkred"}}></small>
+      <form>
         <div className="form-group m-3">
-          <label>{props.label}</label>
           <input
             type="text"
             name="username"
             className="form-control"
             placeholder="Enter Username"
+            id="user"
           />
         </div>
         <div className="form-group m-3">
-          <label>{props.label}</label>
           <input
             type="password"
             name="password"
@@ -78,14 +87,17 @@ export const Loginform = (props) => {
           />
         </div>
         <button
-          type="submit"
+          onClick={confirmer}
+          type="button"
           className="btn btn-primary m-3"
           style={{ width: "94%" }}
+          id="pass"
         >
           Login
         </button>
       
       </form>
+      <hr />
       <div className="p-20 m-6">
         <p className="d-inline">New to Ubus ?</p>
         <button

@@ -33,7 +33,7 @@ import img from "../img/map.png";
 
   const [viewport, setViewport] = useState({
     width: 900,
-    height: 500,
+    height: 750,
     latitude: 30.0778,
     longitude: 31.2852,
     zoom: 1 ,
@@ -44,6 +44,10 @@ import img from "../img/map.png";
 
     const [from , setfrom] = useState ("")
     const [to, setto] = useState ("")
+
+    //  search function
+    //  search function
+
     
     const show = ()=>{
      
@@ -81,16 +85,13 @@ import img from "../img/map.png";
   
          
                 
-                  
+  
+       // stations function
+       // stations function
 
 
 
-
-    //  const[ choose,setChoose]= useState({line:"....."})  
-    //  const choose=""
      const[stationss , setstationss]=useState([{station:"please choose line "}])  
-     
-     
       const xy = (e)=>{
 
       const choose = linesData.filter((line) =>( 
@@ -99,26 +100,12 @@ import img from "../img/map.png";
         
       ))[0]
 
-      
-       
-     
-
          {
            
      setstationss( stationsData.filter((station)=>
             station.line == choose.id )
                
-
-         )
-        console.log(stationss)
-        //   console.log(choose)
-        //     // console.log(stationsData[0].line)
-
-      }} 
-
-
-
-
+         )}} 
 
   return (
 
@@ -151,6 +138,7 @@ import img from "../img/map.png";
        {/* stations */}
        {/* stations */}
 
+
        < div className="dropdown " style={{   marginLeft:"285px" }} >
   <button className=" dropdown-toggle " className="btn btn-primary" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false"
    style={{width:"150px", height:"50px"}} >
@@ -161,7 +149,7 @@ import img from "../img/map.png";
 
            <button class="dropdown-item" type="button" 
                      onClick={() => {
-                          {if (stationss.station !="please choose line "){
+                          {if (station.station !="please choose line "){
 
                             setViewport({
                             latitude: station.st_latitude, longitude: station.st_longitude, zoom: 17, pitch: 0,
@@ -174,13 +162,12 @@ import img from "../img/map.png";
                          
                         }} 
            
-           
-           
            > {station.station} </button>
        ))}
 
   </div>
 </div>
+
 </div>
  
                       

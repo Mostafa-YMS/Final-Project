@@ -4,6 +4,8 @@ import { useLines, useStops } from '../hooks/linesStations.jsx';
 import { FlyToInterpolator } from 'deck.gl';
 import { Marker } from "react-map-gl";
 import img from "../img/bus.svg";
+import { Lines } from './../components/Lines';
+import { Stations } from './../components/Stations';
 
   export const Lines_Stations = () => {
 
@@ -35,7 +37,7 @@ import img from "../img/bus.svg";
     longitude: 31.2852,
     zoom: 1 ,
   })
-    
+   
     let x = ""
     let y = ""
    
@@ -75,64 +77,121 @@ import img from "../img/bus.svg";
                  }
 
                   }
+  
+         
+                
+                  
 
-          
-    
-        // let pos={}
-        // let stations_coordinates = []       
- 
+
+
+
+    //  const[ choose,setChoose]= useState({line:"....."})  
+    //  const choose=""
+     const[stationss , setstationss]=useState([{station:"please choose line "}])  
+     
+     
+      const xy = (e)=>{
+
+      const choose = linesData.filter((line) =>( 
+
+       line.line==e.target.value
+        
+      ))[0]
+
+      
+       
+     
+
+         {
+           
+     setstationss( stationsData.filter((station)=>
+            station.line == choose.id )
+               
+
+         )
+        console.log(stationss)
+        //   console.log(choose)
+        //     // console.log(stationsData[0].line)
+
+      }} 
+
+
+
+
 
   return (
 
     <>
-
-  <div style={{ float: "right", height: "500px", width: "900px", margin: "50px", padindLeft: "100px"  }} >
+        <div style={{ float: "right", height: "500px", width: "900px", margin: "50px", padindLeft: "100px"  }} >
 
           <MainMap viewport={viewport} setViewport={setViewport} />
        
+      </div>
+
+
+ 
+         {/* Lines */}
+         {/* Lines  */}
+  <div className=" row " style={{marginTop:"50px"}} >
+  <div class="dropdown" style={{   marginLeft:"100px" }}>
+  <button className=" dropdown-toggle   " className="btn btn-primary" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false" 
+  style={{width:"150px" , height:"50px"}}>
+    Lines
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2" >
+       {linesData.map((line)=> (
+
+           <button class="dropdown-item" type="button" id={line.id}  value={(line.line)} onClick={xy} > {line.line} </button>
+       ))}
+
   </div>
-     
+</div>
 
-  
-                   {linesData.map((line)=> (
-          <div style={{float:"left" , paddingTop:"30px" , paddingLeft:"37px"}} >
-           <span className="dropdown" style={{padding:"10px" , margin:"10px" }} >
-            <span  id={line.id}  key={line.id}>
-            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
-           
+       {/* stations */}
+       {/* stations */}
 
-                 {line.line}</button> 
-                <div className="dropdown-menu" style={{padding:"10px" , margin:"10px" , paddingLeft:"20px" }}>
+       < div className="dropdown " style={{   marginLeft:"285px" }} >
+  <button className=" dropdown-toggle " className="btn btn-primary" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false"
+   style={{width:"150px", height:"50px"}} >
+    stations
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2" > 
+       {stationss.map((station)=> (
 
-                    { stationsData.filter((station)=>
-                      station.line === line.id ).map( (station)=>(
-                      <button className="dropdown-item" key={station.id} 
-                       onClick={() => {
-                          console.log(station);
-                          setViewport({
+           <button class="dropdown-item" type="button" 
+                     onClick={() => {
+                          {if (stationss.station !="please choose line "){
+
+                            setViewport({
                             latitude: station.st_latitude, longitude: station.st_longitude, zoom: 17, pitch: 0,
                             bearing: 0,
                             transitionDuration: 1000,
                             transitionInterpolator: new FlyToInterpolator()
                           })
-                        }} >
-                      
-                        {station.station}</button>
-                  ))}
-                </div> 
-             </span>
-         </span> 
-         </div>    
-      
-       ))}     
 
+                          }}
+                         
+                        }} 
+           
+           
+           
+           > {station.station} </button>
+       ))}
+
+  </div>
+</div>
+</div>
+ 
+                      
        <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>
        <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>
     
-
+       {/* searching */}
+       {/* searching */}
        
 
- <div style={{width : "700px" , paddingLeft:"50px"}}> 
+ <div style={{width : "700px" , paddingLeft:"50px"}}>
+ 
    <div class="input-group mb-3" style={{width : "250px" , float:"left"}}>
        <div class="input-group-prepend">
           <label class="input-group-text" for="inputGroupSelect01">from</label>
@@ -166,35 +225,48 @@ import img from "../img/bus.svg";
     <h3 id="line"> </h3>
   </div>
               
-{/*               
-                 { stationsData.map((station)=>(
-
-   
-            <Marker longitude={station.st_longitude} latitude={station.st_latitude} >
-            <img src={img} alt="station"/>
-            <p style={{ color: "white" }}> {station.station}</p>
-            </Marker>
-
-                 ))}   */}
 
   </>  
 );
 }
 
 
-      //   { stationsData.map((station)=>{
-
-      //      pos = {longitude:station.st_longitude, latitude:station.st_latitude } ;
-      //      stations_coordinates.push(pos) 
-
-      //  {console.log(stations_coordinates)}
-          
-      //  { for (i=0 ; i< stations_coordinates.length ; i++){
-
-      //           <Marker {(stations_coordinates[i])}>
-      //           <img src={img} />
-      //           <p style={{ color: "white" }}>Cairo</p>
-      //           </Marker>
-      //     })}
-
    
+   
+
+// lines&stations old design
+// lines&stations old design
+
+
+
+//  {linesData.map((line)=> (
+//           <div style={{float:"left" , paddingTop:"30px" , paddingLeft:"37px"}} >
+//            <span className="dropdown" style={{padding:"10px" , margin:"10px" }} >
+//             <span  id={line.id}  key={line.id}>
+//             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
+           
+
+//                  {line.line}</button> 
+//                 <div className="dropdown-menu" style={{padding:"10px" , margin:"10px" , paddingLeft:"20px" }}>
+
+//                     { stationsData.filter((station)=>
+//                       station.line === line.id ).map( (station)=>(
+//                       <button className="dropdown-item" key={station.id} 
+//                        onClick={() => {
+//                           console.log(station);
+//                           setViewport({
+//                             latitude: station.st_latitude, longitude: station.st_longitude, zoom: 17, pitch: 0,
+//                             bearing: 0,
+//                             transitionDuration: 1000,
+//                             transitionInterpolator: new FlyToInterpolator()
+//                           })
+//                         }} >
+                      
+//                         {station.station}</button>
+//                   ))}
+//                 </div> 
+//              </span>
+//          </span> 
+//          </div>    
+      
+//        ))}       

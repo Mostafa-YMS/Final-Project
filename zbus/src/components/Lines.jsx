@@ -2,19 +2,24 @@ import { Layer, Source } from "react-map-gl";
 import {  useCords } from '../hooks/linesStations.jsx';
 import { useState , useEffect } from "react";
 
+
 export const Lines = () => {
 
-   const [cords, setCords] = useState([]);
+  const [cords, setCords] = useState([]);
   const getCords = useCords();
 
   useEffect(() => {
     getCords().then(setCords);
   }, []);
 
+  //  {console.log(cords)}
 
 
 
 
+
+
+     
   
 
   const cord2 = [

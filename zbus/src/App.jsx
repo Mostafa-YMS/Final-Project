@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Driverprovider>
-      {user ? <Navbar active={active} /> : ""}
+      {user ? <Navbar/> : ""}
         <Routes>
           <Route
             path="/login"
@@ -35,11 +35,11 @@ function App() {
               <LoginRoute child={<LoginRegister mode={<RegisterForm />} />} />
             }
           />
-          <Route path="/home" element={<Home />}  />
-          <Route path="/" element={<PrivateRoute child={<Map setactive={setactive}/>} />} />
-          <Route path="/profile" element={<PrivateRoute child={<Profile setactive={setactive}/>} />} />
-          {/* <Route path="/lines" element={<PrivateRoute child={<Lines_Stations/>} />} /> */}
-          <Route path="/lines" element={<Lines_Stations setactive={setactive}/>} />
+          <Route path="/" element={<PrivateRoute child={<Home />} />}  />
+          <Route path="/home" element={<PrivateRoute child={<Map/>} />} />
+          <Route path="/profile" element={<PrivateRoute child={<Profile/>} />} />
+          <Route path="/lines" element={<PrivateRoute child={<Lines_Stations/>} />} />
+          {/* <Route path="/lines" element={<Lines_Stations/>} /> */}
           #####
         <Route path="/driverlogin" element={<LoginRegister mode={<DriverLogin />}/>} />
         <Route path="/driverhome" element={<DriverHome />} />

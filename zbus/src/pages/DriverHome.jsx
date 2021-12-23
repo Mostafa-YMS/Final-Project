@@ -14,7 +14,7 @@ export const DriverHome = () => {
        console.log( value,  position.coords.latitude,  position.coords.longitude, driver.username)
       //  console.log(value)
         if (position.coords.latitude!="") {
-          driverupdate({ name:value, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
+          driverupdate({ name:driver.username, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
        
    }
        else {
@@ -26,7 +26,7 @@ export const DriverHome = () => {
    } 
    let end =  (e)=> {
     const value=e.target.value
-       fetch('http://127.0.0.1:8000/mapapi/delete/'+value+'/', { method: 'DELETE' })
+       fetch('http://127.0.0.1:8000/mapapi/delete/'+driver.username+'/', { method: 'DELETE' })
       //  .then(() => this.setState({ status: 'Delete successful' }));
 
    }
@@ -57,16 +57,6 @@ export const DriverHome = () => {
   )
 }
 
-{/* // <div className="text-center"> <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" className="rounded-circle" /> </div>
-//                     <h5 className="mt-2 mb-0">{isready? driver.username : null}drivername</h5> <span>UI/UX Designer</span> */}
-{/* <div>
-<h1 classNameName={styles.bigblue}>driver home</h1>
-<h1 >hello {isready? driver.username : null} to home</h1>
-<button classNameName="btn btn-success" style={{ fontSize: "14pt" }} onClick={start} value={"bus1"} >BUS 3</button>
-<br /> <br />
-<button classNameName="btn btn-primary" style={{ fontSize: "14pt" }} onClick={end} value={"bus1"}>BUS 4</button>
-
-</div> */}
 
 
 

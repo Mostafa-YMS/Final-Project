@@ -78,9 +78,9 @@ export const Navbar = (props) => {
               </NavLink>
             </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/login" onClick={logOut}>
+                <a className="nav-link" href="" onClick={logOut}>
                   logout
-                </NavLink>
+                </a>
               </li>
           </ul>
         </div>

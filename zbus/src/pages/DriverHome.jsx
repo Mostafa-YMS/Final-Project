@@ -3,6 +3,9 @@ import React, {useContext} from 'react'
 import DriverContext from '../context/DriverContext'
 import { useDriver } from "../hooks/hookdriver";
 import styles from "../styles/driverhome.module.css";
+import img from "../img/map2.png";
+
+
 export const DriverHome = () => {
   let {driver,isready}= useContext(DriverContext)
   const driverupdate = useDriver();
@@ -30,6 +33,12 @@ export const DriverHome = () => {
       //  .then(() => this.setState({ status: 'Delete successful' }));
 
    }
+
+   {
+    document.body.style.backgroundImage = `url(${img})`;
+    document.body.style.backgroundRepeat = `no-repeat`;
+    document.body.style.backgroundSize = `cover`;
+  }
 
   return (
 <div className="container mt-5" style={styles}>

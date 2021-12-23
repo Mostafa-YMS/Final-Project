@@ -2,6 +2,7 @@
 import React, {useContext} from 'react'
 import DriverContext from '../context/DriverContext'
 import { useDriver } from "../hooks/hookdriver";
+import styles from "../styles/driverhome.module.css";
 export const DriverHome = () => {
   let {driver,isready}= useContext(DriverContext)
   const driverupdate = useDriver();
@@ -31,16 +32,41 @@ export const DriverHome = () => {
    }
 
   return (
-    <div>
-      <h1>driver home</h1>
-      <h1 >hello {isready? driver.username : null} to home</h1>
-      <button className="btn btn-success" style={{ fontSize: "14pt" }} onClick={start} value={"bus1"} >BUS 3</button>
-      <br /> <br />
-      <button className="btn btn-primary" style={{ fontSize: "14pt" }} onClick={end} value={"bus1"}>BUS 4</button>
-
+<div className="container mt-5" style={styles}>
+    <div className="row d-flex justify-content-center">
+        <div className="col-md-7">
+            <div className="card p-3 py-4" className={styles.card}>
+                <div className="text-center"> <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" className="rounded-circle" /> </div>
+                <div className="text-center mt-3"> 
+                    <h5 className="mt-2 mb-0">{isready? driver.username : "drivername"}</h5> <span>BUS1 Driver</span>
+                    <div className="px-4 mt-1">
+                        
+                    </div>
+                    {isready?
+                    <ul className="list-group " className={styles.new}>
+                    <li className="list-group-item">First Name: <span className="badge"> {driver.first_name}</span></li>
+                    <li className="list-group-item">Last Name: <span className="badge"> {driver.last_name}</span></li>
+                    <li className="list-group-item">Bus Number: <span className="badge"> {driver.bus_number}</span></li>
+                  </ul>:null}
+                    <div className="buttons" className={styles.buttons}> <button className="btn btn-outline-primary px-4" onClick={start} value={"bus1"}>Start</button> <button className="btn btn-primary px-4 " onClick={end} value={"bus1"}>End</button> </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
   )
 }
+
+{/* // <div className="text-center"> <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" className="rounded-circle" /> </div>
+//                     <h5 className="mt-2 mb-0">{isready? driver.username : null}drivername</h5> <span>UI/UX Designer</span> */}
+{/* <div>
+<h1 classNameName={styles.bigblue}>driver home</h1>
+<h1 >hello {isready? driver.username : null} to home</h1>
+<button classNameName="btn btn-success" style={{ fontSize: "14pt" }} onClick={start} value={"bus1"} >BUS 3</button>
+<br /> <br />
+<button classNameName="btn btn-primary" style={{ fontSize: "14pt" }} onClick={end} value={"bus1"}>BUS 4</button>
+
+</div> */}
 
 
 

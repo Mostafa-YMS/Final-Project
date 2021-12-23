@@ -8,7 +8,7 @@ export default DriverContext;
 
 export const Driverprovider = ({children}) => {
         
-        let [isready, setready] = useState(false)
+        let [isready, setready] = useState(()=> localStorage.getItem('authTokens') ? true: false)
         let [authTokens, setDriverTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
         let [driver, setDriver] = useState(()=> localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
         const navigate = useNavigate()

@@ -45,7 +45,7 @@ function App() {
           #####
           <Route path="/driver" element={<Driver />} />
       
-        <Route path="/driverlogin" element={<DriverLogin />} />
+        <Route path="/driverlogin" element={<LoginRegister mode={<DriverLogin />}/>} />
         <Route path="/driverhome" element={<DriverHome />} />
 
         </Routes>

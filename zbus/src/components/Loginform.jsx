@@ -56,6 +56,9 @@ export const Loginform = (props) => {
   const handleMode = () => {
     navigate("/register");
   };
+  const handleMode1 = () => {
+    navigate("/driverlogin");
+  };
   const confirmer = (e)=>{
     e.preventDefault()
     const p1 = document.getElementById('user').value
@@ -109,6 +112,17 @@ export const Loginform = (props) => {
           Create an account
         </button>
       </div>
+      <div className="m-6">
+                <p className="d-inline"> Login as a </p>
+                <button
+                  type="button"
+                  className="btn btn-link"
+                  style={{ fontSize: "14pt" }}
+                  onClick={handleMode1}
+                >
+                 driver ?
+                </button>
+              </div>
 
     </div>
   );

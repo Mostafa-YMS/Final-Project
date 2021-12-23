@@ -14,6 +14,9 @@ export const RegisterForm = (props) => {
   const handleMode = () => {
     navigate("/login");
   };
+  const handleMode1 = () => {
+    navigate("/driverlogin");
+  };
 
   async function signup() {
     let conf = false
@@ -117,6 +120,17 @@ export const RegisterForm = (props) => {
           Login
         </button>
       </div>
+      <div className="m-6">
+                <p className="d-inline"> Login as a </p>
+                <button
+                  type="button"
+                  className="btn btn-link"
+                  style={{ fontSize: "14pt" }}
+                  onClick={handleMode1}
+                >
+                 driver ?
+                </button>
+              </div>
     </div>
   );
 };

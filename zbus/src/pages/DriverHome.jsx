@@ -9,13 +9,13 @@ import img from "../img/map2.png";
 export const DriverHome = () => {
   let {driver,isready}= useContext(DriverContext)
   const driverupdate = useDriver();
-  let start =  (e)=> {
+  let start =  ()=> {
     if(isready==true){
        navigator.geolocation.watchPosition( function(position) {
         
-       const value=e.target.value
-       console.log( value,  position.coords.latitude,  position.coords.longitude, driver.username)
-      //  console.log(value)
+       
+      //  console.log( value,  position.coords.latitude,  position.coords.longitude, driver.username)
+      
         if (position.coords.latitude!="") {
           driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
        
@@ -28,8 +28,8 @@ export const DriverHome = () => {
        });}
    } 
    let end =  (e)=> {
-    const value=e.target.value
-       fetch('http://127.0.0.1:8000/mapapi/delete/'+driver.username+'/', { method: 'DELETE' })
+    
+       fetch('http://127.0.0.1:8000/mapapi/delete/'+driver.bus_number+'/', { method: 'DELETE' })
       //  .then(() => this.setState({ status: 'Delete successful' }));
 
    }
@@ -57,7 +57,7 @@ export const DriverHome = () => {
                     <li className="list-group-item">Last Name: <span className="badge"> {driver.last_name}</span></li>
                     <li className="list-group-item">Bus Number: <span className="badge"> {driver.bus_number}</span></li>
                   </ul>:null}
-                    <div className="buttons" className={styles.buttons}> <button className="btn btn-outline-primary px-4" onClick={start} value={"bus1"}>Start</button> <button className="btn btn-primary px-4 " onClick={end} value={"bus1"}>End</button> </div>
+                    <div className="buttons" className={styles.buttons}> <button className="btn btn-outline-primary px-4" onClick={start} >Start</button> <button className="btn btn-primary px-4 " onClick={end} >End</button> </div>
                 </div>
             </div>
         </div>

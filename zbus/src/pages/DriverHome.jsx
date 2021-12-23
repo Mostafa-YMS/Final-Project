@@ -17,7 +17,7 @@ export const DriverHome = () => {
        console.log( value,  position.coords.latitude,  position.coords.longitude, driver.username)
       //  console.log(value)
         if (position.coords.latitude!="") {
-          driverupdate({ name:driver.username, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
+          driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
        
    }
        else {

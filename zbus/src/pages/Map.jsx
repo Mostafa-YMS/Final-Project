@@ -9,10 +9,6 @@ export const Map = (props) => {
     document.body.style.backgroundSize = `cover`;
   }
 
-  {
-    props.setactive("home");
-  }
-
   const [viewport, setViewport] = useState({
     width: 1100,
     height: 680,

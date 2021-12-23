@@ -10,9 +10,6 @@ export const Lines_Stations = (props) => {
     document.body.style.backgroundRepeat = `no-repeat`;
     document.body.style.backgroundSize = `cover`;
   }
-  {
-    props.setactive("lines");
-  }
 
   const [stationsData, setStationsData] = useState([]);
   const getstations = useStops();

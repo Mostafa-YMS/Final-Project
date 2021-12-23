@@ -4,8 +4,6 @@ import img from "../img/Main.svg";
 
 export const Profile = (props) => {
     let { user } = useContext(AuthContext)
-    console.log(user)
-    {props.setactive("profile")}
 
     return (
         // <>

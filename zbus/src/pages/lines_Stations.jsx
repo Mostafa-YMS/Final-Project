@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MainMap } from "../components";
 import { useLines, useStops } from "../hooks/linesStations.jsx";
-import { FlyToInterpolator } from "deck.gl";
+import {FlyToInterpolator} from 'react-map-gl';
 import img from "../img/map2.png";
 
 export const Lines_Stations = (props) => {

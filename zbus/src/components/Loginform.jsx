@@ -71,6 +71,7 @@ export const Loginform = (props) => {
   }
   return (
     <div>
+      <br /><br /><br />
       <small id="announce1" style={{color: "darkred"}}></small>
       <form onSubmit={confirmer} id="loginform">
         <div className="form-group m-3">

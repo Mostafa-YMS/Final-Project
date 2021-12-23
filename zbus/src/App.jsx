@@ -1,8 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { Loginform, RegisterForm, Driver, Navbar} from "./components";
+import { Loginform, RegisterForm, Navbar} from "./components";
 import Home from "./pages/Home";
 import PrivateRoute from "./utils/PrivateRoute";
-import { LocationGet } from "./context/BusesContext";
 import { Map, Profile, Lines_Stations, LoginRegister, DriverLogin, DriverHome }from "./pages";
 import LoginRoute from "./utils/LoginRoute";
 import React, { useContext } from "react";
@@ -21,7 +20,6 @@ function App() {
   
   return (
     <>
-      <LocationGet>
       <Driverprovider>
       {user ? <Navbar active={active} /> : ""}
         <Routes>
@@ -43,14 +41,11 @@ function App() {
           {/* <Route path="/lines" element={<PrivateRoute child={<Lines_Stations/>} />} /> */}
           <Route path="/lines" element={<Lines_Stations setactive={setactive}/>} />
           #####
-          <Route path="/driver" element={<Driver />} />
-      
         <Route path="/driverlogin" element={<LoginRegister mode={<DriverLogin />}/>} />
         <Route path="/driverhome" element={<DriverHome />} />
 
         </Routes>
         </Driverprovider>
-        </LocationGet> 
     </>
   );
 }

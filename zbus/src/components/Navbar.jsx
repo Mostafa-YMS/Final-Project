@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
 export const Navbar = (props) => {
@@ -32,9 +33,9 @@ export const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light" id="nav">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <NavLink className="navbar-brand" to="/">
           UBus
-        </a>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -49,37 +50,37 @@ export const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className={`nav-link ${props.active ==="home" ? 'active':""}`} aria-current="page" href="/">
+              <NavLink className={`nav-link ${props.active ==="home" ? 'active':""}`} aria-current="page" to="/">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className={`nav-link ${props.active ==="lines" ? 'active':""}`} href="lines">
+              <NavLink className={`nav-link ${props.active ==="lines" ? 'active':""}`} to="lines">
                 Lines & Stops
-              </a>
+              </NavLink>
             </li>
           </ul>
 
           <ul className="my-2 my-lg-0 navbar-nav ml-auto">
             <li className="nav-item {% block profile %} {% endblock %}">
-              <a
+              <NavLink
                 className="nav-link"
-                href="#"
+                to="#"
                 onClick={() => setDarkMode(!darkMode)}
               >
                 Dark Mode
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item ">
             
-              <a className={`nav-link ${props.active ==="profile" ? 'active':""}`}   href="/Profile">
+              <NavLink className={`nav-link ${props.active ==="profile" ? 'active':""}`}   to="/Profile">
                 Profile
-              </a>
+              </NavLink>
             </li>
               <li className="nav-item">
-                <a className="nav-link" href="/login" onClick={logOut}>
+                <NavLink className="nav-link" to="/login" onClick={logOut}>
                   logout
-                </a>
+                </NavLink>
               </li>
           </ul>
         </div>

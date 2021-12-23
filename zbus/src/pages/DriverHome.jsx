@@ -8,14 +8,11 @@ import img from "../img/map2.png";
 
 export const DriverHome = () => {
   let {driver,isready}= useContext(DriverContext)
+  let position = ""
   const driverupdate = useDriver();
-  let start =  ()=> {
+  let start = ()=> {
     if(isready==true){
-       navigator.geolocation.watchPosition( function(position) {
-        
-       
-      //  console.log( value,  position.coords.latitude,  position.coords.longitude, driver.username)
-      
+      position = navigator.geolocation.watchPosition( function(position) {       
         if (position.coords.latitude!="") {
           driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
        
@@ -27,11 +24,9 @@ export const DriverHome = () => {
        
        });}
    } 
-   let end =  (e)=> {
-    
+   let end =  ()=> {
+    navigator.geolocation.clearWatch(position);
        fetch('http://127.0.0.1:8000/mapapi/delete/'+driver.bus_number+'/', { method: 'DELETE' })
-      //  .then(() => this.setState({ status: 'Delete successful' }));
-
    }
 
    {

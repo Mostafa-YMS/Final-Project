@@ -5,13 +5,17 @@ import { useDriver } from "../hooks/hookdriver";
 import styles from "../styles/driverhome.module.css";
 import img from "../img/map2.png";
 import AuthContext from "../context/AuthContext";
+import { useState } from 'react';
 
 
 export const DriverHome = () => {
   let {driver,isready}= useContext(DriverContext)
+  let { logOut } = useContext(AuthContext);
   let position = ""
+  const [operating, setOperating] = useState(false)
   const driverupdate = useDriver();
   let start = ()=> {
+    setOperating(true)
     if(isready==true){
       position = navigator.geolocation.watchPosition( function(position) {       
         if (position.coords.latitude!="") {
@@ -28,23 +32,27 @@ export const DriverHome = () => {
    let end =  ()=> {
     navigator.geolocation.clearWatch(position);
        fetch('http://127.0.0.1:8000/mapapi/delete/'+driver.bus_number+'/', { method: 'DELETE' })
+       setOperating(false)
    }
+   let logout = ()=> {
+      end()
+      logOut()
+   } 
 
    {
     document.body.style.backgroundImage = `url(${img})`;
     document.body.style.backgroundRepeat = `no-repeat`;
     document.body.style.backgroundSize = `cover`;
   }
-  let { user, logOut } = useContext(AuthContext);
   return (
 <div className="container mt-5" style={styles}>
-  <a style={{float:"right"}} href='' className='btn btn-danger' onClick={logOut}>logout</a>
+  <a style={{float:"right"}} href='' className='btn btn-danger' onClick={logout}>logout</a>
     <div className="row d-flex justify-content-center">
         <div className="col-md-7">
             <div className="card p-3 py-4" className={styles.card}>
                 <div className="text-center"> <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" className="rounded-circle" /> </div>
-                <div className="text-center mt-3"> 
-                    <h5 className="mt-2 mb-0">{isready? driver.username : "drivername"}</h5> <span>BUS1 Driver</span>
+                <div className="text-center mt-3">
+                    <h5 className="mt-2 mb-0">{isready? driver.username : "drivername"}</h5> <span>Bus {driver.bus_number} driver</span>
                     <div className="px-4 mt-1">
                         
                     </div>
@@ -54,7 +62,8 @@ export const DriverHome = () => {
                     <li className="list-group-item">Last Name: <span className="badge"> {driver.last_name}</span></li>
                     <li className="list-group-item">Bus Number: <span className="badge"> {driver.bus_number}</span></li>
                   </ul>:null}
-                    <div className="buttons" className={styles.buttons}> <button className="btn btn-outline-primary px-4" onClick={start} >Start</button> <button className="btn btn-primary px-4 " onClick={end} >End</button> </div>
+                      {operating ? (<div className={styles.start}><button className="btn btn-primary px-4 " onClick={end} >End</button></div>
+                      ) : (<div className={styles.start}><button  className="btn btn-primary px-4" onClick={start} >Start</button></div>)}
                 </div>
             </div>
         </div>

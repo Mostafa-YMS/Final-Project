@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Loginform, RegisterForm, Navbar} from "./components";
 import Home from "./pages/Home";
 import PrivateRoute from "./utils/PrivateRoute";
-import { Map, Profile, Lines_Stations, LoginRegister, DriverLogin, DriverHome }from "./pages";
+import { Map, Profile, Lines_Stations, LoginRegister, DriverLogin, DriverHome , Chat}from "./pages";
 import LoginRoute from "./utils/LoginRoute";
 import React, { useContext } from "react";
 import AuthContext from "./context/AuthContext";
@@ -43,6 +43,7 @@ function App() {
           #####
         <Route path="/driverlogin" element={<LoginRegister mode={<DriverLogin />}/>} />
         <Route path="/driverhome" element={<DriverHome />} />
+        <Route path="/chat" element={<Chat />} />
 
         </Routes>
         </Driverprovider>

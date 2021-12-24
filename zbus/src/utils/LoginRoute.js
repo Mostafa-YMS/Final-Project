@@ -7,9 +7,6 @@ import AuthContext from '../context/AuthContext'
 const LoginRoute = (props) => {
     let {user} = useContext(AuthContext)
     return !user ? props.child : <Navigate to={"/home"}/>  ;
-    // const authenticated = false
-    // return authenticated ? props.child : <Navigate to="/"  />;
-    
 }
 
 export default LoginRoute

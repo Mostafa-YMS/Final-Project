@@ -2,9 +2,8 @@ import React, { useContext } from 'react'
 import AuthContext from '../context/AuthContext'
 import img from "../img/Main.svg";
 
-export const Profile = () => {
+export const Profile = (props) => {
     let { user } = useContext(AuthContext)
-    console.log(user)
 
     return (
         // <>

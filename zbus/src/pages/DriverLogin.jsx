@@ -5,10 +5,16 @@ import DriverContext from "../context/DriverContext";
 
 export const DriverLogin = (props) => {
   let { loginDriver } = useContext(DriverContext);
+
+  const navigate = useNavigate();
+  const handleMode = () => {
+    navigate("/login");
+  };
   
   
   return (
     <div>
+      <br /><br /><br />
       <form onSubmit={loginDriver}>
         <div className="form-group m-3">
           <label>{props.label}</label>
@@ -37,6 +43,18 @@ export const DriverLogin = (props) => {
         </button>
       
       </form>
+      <hr />
+      <div className="m-6">
+                <p className="d-inline"> Login as a </p>
+                <button
+                  type="button"
+                  className="btn btn-link"
+                  style={{ fontSize: "14pt" }}
+                  onClick={handleMode}
+                >
+                 User ?
+                </button>
+              </div>
         
     </div>
   );

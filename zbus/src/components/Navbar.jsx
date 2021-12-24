@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
   let { user, logOut } = useContext(AuthContext);
   const [darkMode, setDarkMode] = React.useState(false);
 
@@ -32,9 +33,9 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light" id="nav">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <NavLink className="navbar-brand" to="/">
           UBus
-        </a>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -49,19 +50,19 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <NavLink className="nav-link" aria-current="page" to="/home">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="lines">
+              <NavLink className="nav-link" to="lines">
                 Lines & Stops
-              </a>
+              </NavLink>
             </li>
           </ul>
 
           <ul className="my-2 my-lg-0 navbar-nav ml-auto">
-            <li className="nav-item {% block profile %} {% endblock %}">
+            <li className="nav-item">
               <a
                 className="nav-link"
                 href="#"
@@ -70,13 +71,14 @@ export const Navbar = () => {
                 Dark Mode
               </a>
             </li>
-            <li className="nav-item {% block profile %} {% endblock %}">
-              <a className="nav-link" href="/Profile">
+            <li className="nav-item ">
+            
+              <NavLink className="nav-link"   to="/Profile">
                 Profile
-              </a>
+              </NavLink>
             </li>
               <li className="nav-item">
-                <a className="nav-link" href="/login" onClick={logOut}>
+                <a className="nav-link" href="" onClick={logOut}>
                   logout
                 </a>
               </li>

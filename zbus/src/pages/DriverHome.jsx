@@ -4,6 +4,7 @@ import DriverContext from '../context/DriverContext'
 import { useDriver } from "../hooks/hookdriver";
 import styles from "../styles/driverhome.module.css";
 import img from "../img/map2.png";
+import AuthContext from "../context/AuthContext";
 
 
 export const DriverHome = () => {
@@ -34,9 +35,10 @@ export const DriverHome = () => {
     document.body.style.backgroundRepeat = `no-repeat`;
     document.body.style.backgroundSize = `cover`;
   }
-
+  let { user, logOut } = useContext(AuthContext);
   return (
 <div className="container mt-5" style={styles}>
+  <a style={{float:"right"}} href='' className='btn btn-danger' onClick={logOut}>logout</a>
     <div className="row d-flex justify-content-center">
         <div className="col-md-7">
             <div className="card p-3 py-4" className={styles.card}>

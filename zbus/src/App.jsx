@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import PrivateRoute from "./utils/PrivateRoute";
 import { Map, Profile, Lines_Stations, LoginRegister, DriverLogin, DriverHome }from "./pages";
 import LoginRoute from "./utils/LoginRoute";
+import {DriverRoute,DriverLoginRoute} from "./utils/DriverRoute";
 import React, { useContext } from "react";
 import AuthContext from "./context/AuthContext";
 import { useState } from "react";
@@ -41,8 +42,8 @@ function App() {
           <Route path="/lines" element={<PrivateRoute child={<Lines_Stations/>} />} />
           {/* <Route path="/lines" element={<Lines_Stations/>} /> */}
           #####
-        <Route path="/driverlogin" element={<LoginRegister mode={<DriverLogin />}/>} />
-        <Route path="/driverhome" element={<DriverHome />} />
+        <Route path="/driverlogin" element={<DriverRoute  child={<LoginRegister  mode={<DriverLogin />}/>}/>} />
+        <Route path="/driverhome" element={<DriverLoginRoute  child={<DriverHome />}/>} />
 
         </Routes>
         </Driverprovider>

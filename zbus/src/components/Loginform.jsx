@@ -51,14 +51,18 @@ import AuthContext from "../context/AuthContext";
 
 
 export const Loginform = (props) => {
+
   let { loginUser } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const handleMode = () => {
     navigate("/register");
   };
+
   const handleMode1 = () => {
     navigate("/driverlogin");
   };
+  
   const confirmer = (e)=>{
     e.preventDefault()
     const p1 = document.getElementById('user').value

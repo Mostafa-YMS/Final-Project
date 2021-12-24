@@ -35,7 +35,6 @@ export const RegisterForm = (props) => {
     }
     if(conf && len){
     let item = { email, username, first_name, last_name, password, birth_date };
-    console.warn(item);
 
     let result = await fetch("http://127.0.0.1:8000/user/register", {
       method: "POST",
@@ -46,8 +45,11 @@ export const RegisterForm = (props) => {
       },
     });
     result = await result.json();
-    console.warn(result);
-    navigate("/login");
+    if (result.username[0] === "user with this username already exists."){
+      document.getElementById("announce").innerHTML='Username already exists'
+    }else{
+      navigate("/login");
+    }
   }}
   return (
     <div className="App">

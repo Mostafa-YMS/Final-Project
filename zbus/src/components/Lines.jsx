@@ -14,7 +14,6 @@ export const Lines = () => {
     for (let p = 0; p < cords.length; p++) {
       if (typeof cords[p].LineCords === "string") {
         let newelem = [];
-        // console.log(cords[p].LineCords.split("|"));
         element = cords[p].LineCords.split("|");
         for (let i = 0; i < element.length; i++) {
           let x = element[i].split(",");

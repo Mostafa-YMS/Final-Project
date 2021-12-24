@@ -1,7 +1,7 @@
 /* eslint-disable no-lone-blocks */
 import { useNavigate } from 'react-router-dom';
 import React from 'react'
-import img from "../img/home.jpg";
+import img from "../img/1.jpeg";
 const Home = () => {
 
   {
@@ -26,7 +26,7 @@ const Home = () => {
         </div>
         
           <div className='col-6'>
-          <button className="btn btn-dark" onClick={Reg}  style={{ float: "right",display:"flex" }}>Register</button>
+          <button className="btn btn-secondary" onClick={Reg}  style={{ float: "right",display:"flex" }}>Register</button>
           <button className="btn btn-secondary" onClick={Log} style={{ float: "right",display:"flex" }}>Login</button>
           </div>
         </div>

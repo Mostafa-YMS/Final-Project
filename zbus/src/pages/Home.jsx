@@ -26,8 +26,8 @@ const Home = () => {
         </div>
         
           <div className='col-6'>
-          <button className="btn btn-dark" onClick={Log} style={{ float: "right",display:"flex" }}>Login</button>
-          <button className="btn btn-secondary" onClick={Reg}  style={{ float: "right",display:"flex" }}>Register</button>
+          <button className="btn btn-dark" onClick={Reg}  style={{ float: "right",display:"flex" }}>Register</button>
+          <button className="btn btn-secondary" onClick={Log} style={{ float: "right",display:"flex" }}>Login</button>
           </div>
         </div>
       </div>

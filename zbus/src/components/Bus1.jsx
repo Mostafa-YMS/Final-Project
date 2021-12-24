@@ -19,7 +19,7 @@ export const Bus1 = ()=> {
     bus3={longitude:buses[1].longitude,latitude:buses[1].latitude}
     bus1={longitude:buses[2].longitude,latitude:buses[2].latitude}
     bus2={longitude:buses[3].longitude,latitude:buses[3].latitude}
-// //    console.log("prop?",x,w,bus1,bus2)
+//    console.log("prop?",x,w,bus1,bus2)
    }
    return(
         <>
@@ -38,4 +38,8 @@ export const Bus1 = ()=> {
         </>
     )
         
-}
+ }
+// {"name":"bus1",
+// "longitude": "29.963376",
+// "latitude": "31.084125",
+// "driver":"mostafayousef"}

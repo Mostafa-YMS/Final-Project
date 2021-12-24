@@ -26,28 +26,19 @@ export const AuthProvider = ({children}) => {
             let data = await response.json()
 
         if(response.status === 200){
-            // setAuthTokens(data)
-            // user=jwt_decode(data.jwt)
-            console.log("auth",data.jwt);
             setUser(jwt_decode(data.jwt))
-            console.log("user",user);
             localStorage.setItem('authTokens', JSON.stringify(data))
-            navigate('/')
-            // console.log("user",user)
-            // // console.log("username",user.username)
-            // console.log("data",data)
+            navigate('/home')
         }else{
-            alert('Something went wrong!')
+            document.getElementById("announce1").innerHTML='Wrong email or password'
         }
     }
     let logOut = async (e )=> {
-
-        // e.preventDefault()
         localStorage.clear()
         user=null
-        navigate('/')
-        // window.location.reload();
+        navigate('/login')
     }
+
     let contextData = {
         user:user,
         logOut:logOut,

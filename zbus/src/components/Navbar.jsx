@@ -72,10 +72,12 @@ export const Navbar = (props) => {
               </a>
             </li>
             <li className="nav-item ">
-            
-              <NavLink className="nav-link"   to="/Profile">
-                Profile
+              <NavLink className="nav-link"   to="/chat">
+                Chat
               </NavLink>
+              {/* <NavLink className="nav-link"   to="/Profile">
+                Profile
+              </NavLink> */}
             </li>
               <li className="nav-item">
                 <a className="nav-link" href="" onClick={logOut}>

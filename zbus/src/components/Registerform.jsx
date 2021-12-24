@@ -19,6 +19,7 @@ export const RegisterForm = (props) => {
   };
 
   async function signup() {
+    if (email && username && first_name && last_name && password && birth_date){
     let conf = false
     let len = false
     const p1 = document.getElementById('pass1').value
@@ -50,7 +51,11 @@ export const RegisterForm = (props) => {
     }else{
       navigate("/login");
     }
-  }}
+  }
+}else{
+  document.getElementById("announce").innerHTML='All fields required'
+}
+}
   return (
     <div className="App">
       <small id="announce" style={{color: "darkred"}}></small>

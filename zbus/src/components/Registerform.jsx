@@ -17,11 +17,15 @@ export const RegisterForm = (props) => {
   const handleMode1 = () => {
     navigate("/driverlogin");
   };
+  const current = new Date();
+  const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
+
 
   async function signup() {
     if (email && username && first_name && last_name && password && birth_date){
     let conf = false
     let len = false
+    let age = false
     const p1 = document.getElementById('pass1').value
     const p2 = document.getElementById('pass2').value
     if (p1 === p2){
@@ -34,7 +38,12 @@ export const RegisterForm = (props) => {
     }else{
       document.getElementById("announce").innerHTML='password is very short'
     }
-    if(conf && len){
+    if (birth_date < date){
+      age = true
+    }else{
+      document.getElementById("announce").innerHTML='Wrong birth date'
+    }
+    if(conf && len && age){
     let item = { email, username, first_name, last_name, password, birth_date };
 
     let result = await fetch("http://127.0.0.1:8000/user/register", {

@@ -240,3 +240,33 @@ const cord2 = [
     [31.2469, 30.0522],
     [31.2648, 30.0689],
   ];
+
+  // import {useSelector} from "react-redux"
+// import { useDispatch } from 'react-redux';
+// import { store } from '../reduxBus/BusStore';
+// import {getBus} from './../reduxBus/action/creators'
+
+
+      // const dispatch = useDispatch()
+    // // const busesR = useSelector((state)=>state.getBus)
+    // let busesR = store.getState().getBus
+    // if (!busesR.getBus){
+    //     dispatch(getBus()).then((result)=>{console.log(result);})
+    //         console.log("fired");
+    // }
+    
+
+    // console.log(busesR);
+
+
+    // import { useDispatch } from 'react-redux';
+// import { Watch_Bus } from './../reduxBus/action/constants';
+// import { watchBus } from './../reduxBus/action/creators'
+
+
+//   dispatch(watchBus(dispatch({
+        //     type: Watch_Bus,
+        //     payload: driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
+        // })));
+
+        

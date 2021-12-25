@@ -1,4 +1,3 @@
-
 import React, {useContext} from 'react'
 import DriverContext from '../context/DriverContext'
 import { useDriver } from "../hooks/hookdriver";
@@ -7,11 +6,11 @@ import img from "../img/map2.png";
 import AuthContext from "../context/AuthContext";
 import { useState } from 'react';
 
-
 export const DriverHome = () => {
   let {driver,isready}= useContext(DriverContext)
   let { logOut } = useContext(AuthContext);
   let position = ""
+  // const dispatch = useDispatch()
   const [operating, setOperating] = useState(false)
   const driverupdate = useDriver();
   let start = ()=> {
@@ -20,7 +19,6 @@ export const DriverHome = () => {
       position = navigator.geolocation.watchPosition( function(position) {       
         if (position.coords.latitude!="") {
           driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
-       
    }
        else {
            console.log("errorrrrr")

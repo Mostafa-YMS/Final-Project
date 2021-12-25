@@ -17,7 +17,7 @@ export const Chat = () => {
       
       {
         id: '1',
-        message: 'hi '+username+' What number I am thinking?',
+        message: 'hi '+username+' What number I am thinkingz?',
         trigger: '2',
       },
       {

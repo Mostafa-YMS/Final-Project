@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Loginform, RegisterForm, Navbar} from "./components";
 import Home from "./pages/Home";
 import PrivateRoute from "./utils/PrivateRoute";
-import { Map, Profile, Lines_Stations, LoginRegister, DriverLogin, DriverHome }from "./pages";
+import { Map, Profile, Lines_Stations, LoginRegister, DriverLogin, DriverHome , Chat}from "./pages";
 import LoginRoute from "./utils/LoginRoute";
 import {DriverRoute,DriverLoginRoute} from "./utils/DriverRoute";
 import React, { useContext } from "react";
@@ -42,8 +42,9 @@ function App() {
           <Route path="/lines" element={<PrivateRoute child={<Lines_Stations/>} />} />
           {/* <Route path="/lines" element={<Lines_Stations/>} /> */}
           #####
-        <Route path="/driverlogin" element={<DriverRoute  child={<LoginRegister  mode={<DriverLogin />}/>}/>} />
-        <Route path="/driverhome" element={<DriverLoginRoute  child={<DriverHome />}/>} />
+        <Route path="/driverlogin" element={<LoginRegister mode={<DriverLogin />}/>} />
+        <Route path="/driverhome" element={<DriverHome />} />
+        <Route path="/chat" element={<Chat />} />
 
         </Routes>
         </Driverprovider>

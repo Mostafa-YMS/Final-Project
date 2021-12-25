@@ -13,7 +13,7 @@ export const BusLocations = ()=>{
     
     useEffect(() => {
         getBuses().then(setBuses);
-    }, [buses]);
+    }, []);
 
     return(
         <>

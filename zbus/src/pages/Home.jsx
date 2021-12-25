@@ -1,7 +1,7 @@
 /* eslint-disable no-lone-blocks */
 import { useNavigate } from 'react-router-dom';
 import React from 'react'
-import img from "../img/home.jpg";
+import img from "../img/1.jpeg";
 const Home = () => {
 
   {

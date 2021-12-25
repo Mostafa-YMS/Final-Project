@@ -1,14 +1,12 @@
-import { ApiContext } from "../context/ApiContext";
 import { createStore, applyMiddleware } from "redux";
 import thunk from 'redux-thunk'
-import { useContext } from 'react';
 
 
 //constant
 const watchBus = "watchBus"
 
 
-//creator
+//action creator
 export const useWatchBusPos = () => {
     return async (post, dispatch, getState) => {
         try {
@@ -25,9 +23,7 @@ export const useWatchBusPos = () => {
     }
 }
 
-
-
-
+//reducer
 const watchBusReducer = (state = [], action) => {
     switch(action.type) {
         case watchBus:
@@ -37,4 +33,5 @@ const watchBusReducer = (state = [], action) => {
     }
 }
 
+//store
 export const store = createStore(watchBusReducer, applyMiddleware(thunk));

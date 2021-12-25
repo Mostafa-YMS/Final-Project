@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import { Route } from 'react-router-dom'
 import { Navigate } from 'react-router-dom';
 import React, {useContext} from 'react'
 import DriverContext from '../context/DriverContext'

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import validator from 'validator'
 
 export const RegisterForm = (props) => {
   const [email, setEmail] = useState("");
@@ -10,6 +11,14 @@ export const RegisterForm = (props) => {
   const [birth_date, setBirthday] = useState("");
   
 
+  const validateEmail = (e) => {
+    var email = e.target.value
+    if (validator.isEmail(email)) {
+      setEmail('Valid Email :)')
+    } else {
+      setEmail('Enter valid Email!')
+    }
+  }
   const navigate = useNavigate();
   const handleMode = () => {
     navigate("/login");
@@ -26,8 +35,14 @@ export const RegisterForm = (props) => {
     let conf = false
     let len = false
     let age = false
+    let em = false
     const p1 = document.getElementById('pass1').value
     const p2 = document.getElementById('pass2').value
+    if (validator.isEmail(email)) {
+      em=true
+    } else {
+      document.getElementById("announce").innerHTML='Email in not valid'
+    }
     if (p1 === p2){
       conf = true
     } else{
@@ -43,7 +58,7 @@ export const RegisterForm = (props) => {
     }else{
       document.getElementById("announce").innerHTML='Wrong birth date'
     }
-    if(conf && len && age){
+    if(conf && len && age && em){
     let item = { email, username, first_name, last_name, password, birth_date };
 
     let result = await fetch("http://127.0.0.1:8000/user/register", {
@@ -91,7 +106,7 @@ export const RegisterForm = (props) => {
       <br />
       <input
         type="email"
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => validateEmail(e)}
         className="form-control"
         placeholder="email"
       />

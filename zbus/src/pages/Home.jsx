@@ -9,6 +9,9 @@ const Home = () => {
     document.body.style.backgroundRepeat = `no-repeat`
     document.body.style.backgroundSize = `cover`
   }
+  const driverLog =()=>{
+    navigate("/driverlogin")
+  }
   const navigate = useNavigate();
   const Reg = () => {
     navigate("/register");
@@ -53,7 +56,7 @@ const Home = () => {
       <div style={{  textAlign: "center"}}>
       <button className="btn btn-light" onClick={Log} style={{ width:"150px",margin:"10px" }}>Login</button>
           <button className="btn btn-secondary" onClick={Reg}  style={{ width:"150px",margin:"10px" }}>Register</button>
-          
+          <button className="btn btn-dark" onClick={driverLog} style={{ width:"150px",margin:"10px" }}>Login as Driver</button>
           </div>
       
 

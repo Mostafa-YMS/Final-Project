@@ -8,7 +8,7 @@ export const BusLocations = ()=>{
     
     const [buses, setBuses] = useState([]);
     const getBuses = useGetDriver();
-    console.log("fired");
+    // console.log("fired");
     
         useEffect(() => {
         //     console.log(buses);

@@ -34,7 +34,7 @@ export const Driverprovider = ({children}) => {
             localStorage.setItem('authTokens', JSON.stringify(data))
             navigate('/driverhome')}
         }else{
-            alert('Something went wrong!')
+            document.getElementById("announceDriver").innerHTML='Wrong email or password'
         }
     }
     let logOut = async (e )=> {

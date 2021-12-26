@@ -11,8 +11,8 @@ export const BusLocations = ()=>{
     console.log("fired");
     
         useEffect(() => {
+        //     console.log(buses);
             getBuses().then(setBuses);
-            console.log(buses);
         }, []);
 
     return(

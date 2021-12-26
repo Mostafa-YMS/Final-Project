@@ -30,7 +30,7 @@ export const AuthProvider = ({children}) => {
             localStorage.setItem('authTokens', JSON.stringify(data))
             navigate('/home')
         }else{
-            document.getElementById("announce1").innerHTML='Wrong email or password'
+            document.getElementById("announce1").innerHTML='Wrong username or password'
         }
     }
     let logOut = async (e )=> {

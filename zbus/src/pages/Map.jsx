@@ -11,7 +11,7 @@ export const Map = (props) => {
 
   const [viewport, setViewport] = useState({
     width: 1100,
-    height: 680,
+    height: 683,
     latitude: 30.0778,
     longitude: 31.2852,
     zoom: 1,

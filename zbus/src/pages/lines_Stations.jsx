@@ -27,7 +27,7 @@ export const Lines_Stations = (props) => {
 
   const [viewport, setViewport] = useState({
     width: 900,
-    height: 750,
+    height: 683,
     latitude: 30.0778,
     longitude: 31.2852,
     zoom: 1,
@@ -97,6 +97,7 @@ export const Lines_Stations = (props) => {
   };
 
   return (
+    <div className="col">
     <div className="row">
       <div className="col-4 row justify-content-center align-self-center">
         <div className="dropdown m-3 d-inline">
@@ -230,7 +231,7 @@ export const Lines_Stations = (props) => {
       <div className="col-8">
         <MainMap viewport={viewport} setViewport={setViewport}/>
       </div>
-    </div>
+    </div></div>
   );
 };
 

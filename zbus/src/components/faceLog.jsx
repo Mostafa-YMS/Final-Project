@@ -13,7 +13,7 @@ class FaceLog extends React.Component {
         autoLoad={true}
         fields="name,email,picture"
         scope="public_profile,user_friends,user_actions.books"
-        callback={this.responseFacebook}
+        callback={console.log(this.responseFacebook)}
         size='small'
         buttonStyle={{marginTop: "40px"}}
       />

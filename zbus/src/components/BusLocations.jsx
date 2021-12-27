@@ -4,25 +4,20 @@ import {Marker} from 'react-map-gl';
 import img from "../img/locationx.svg";
 
 
-export const BusLocations = ()=>{
+export const BusLocations = (props)=>{
+    // ws://localhost:8000/ws/test/
     
-    const [buses, setBuses] = useState([]);
-    const getBuses = useGetDriver();
-    // console.log("fired");
+    // const getBuses = useGetDriver();
+    // // console.log("fired");
     
-        useEffect(() => {
-        //     console.log(buses);
-            getBuses().then(setBuses);
-        }, []);
+    //     useEffect(() => {
+    //     //     console.log(buses);
+    //         getBuses().then(setBuses);
+    //     }, []);
 
     return(
         <>
-        {buses.map((bus)=>(
-            <Marker latitude={bus.latitude} longitude={bus.longitude} key={bus.id} >
-                <img src={img}/>
-                <p style={{color: "white"}}>{bus.name}</p>
-            </Marker>
-        ))}
+        
         
         </>
         

@@ -2,7 +2,7 @@ import React from "react";
 import ReactMapGL, { NavigationControl, GeolocateControl, FullscreenControl, ScaleControl } from "react-map-gl";
 import { Stations } from "../components";
 import { Lines } from "./Lines";
-import { BusLocations } from './BusLocations';
+import { BusSocket } from './BusSocket';
 
 export const MainMap = (props) => {
 
@@ -48,7 +48,7 @@ export const MainMap = (props) => {
       </div>
       {/* <Bus1 /> */}
       <Stations />
-      <BusLocations/>
+      <BusSocket/>
       <Lines />
       <FullscreenControl style={fullscreenControlStyle} />
       <ScaleControl style={scaleControlStyle} />

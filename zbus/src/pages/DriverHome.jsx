@@ -13,6 +13,13 @@ export const DriverHome = () => {
   // const dispatch = useDispatch()
   const [operating, setOperating] = useState(false)
   const driverupdate = useDriver();
+  // const [latitude, setLatitude] = useState(31.3265)
+
+  // setInterval(() => {
+  //   setLatitude(latitude+0.0001)
+  // }, 3000);
+  // driverupdate({ name:"659", latitude: latitude, longitude: 30.2356, driver:"sayed"})
+
   let start = ()=> {
     setOperating(true)
     if(isready==true){

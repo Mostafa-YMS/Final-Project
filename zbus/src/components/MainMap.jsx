@@ -3,8 +3,12 @@ import ReactMapGL, { NavigationControl, GeolocateControl, FullscreenControl, Sca
 import { Stations } from "../components";
 import { Lines } from "./Lines";
 import { BusSocket } from './BusSocket';
+import { useDispatch, useSelector } from "react-redux";
+import { makePort } from "../reduxBus/action/creators";
 
 export const MainMap = (props) => {
+  const dispatch = useDispatch()
+  const viewPort = useSelector(state => state)
 
   const fullscreenControlStyle = {
     top: 36,
@@ -30,9 +34,9 @@ export const MainMap = (props) => {
 
   return (
     <ReactMapGL
-      {...props.viewport}
+      {...viewPort}
       maxPitch={65}
-      onViewportChange={(nextViewport) => props.setViewport(nextViewport)}
+      onViewportChange={(nextViewport) => dispatch(makePort(nextViewport))}
       mapboxApiAccessToken={MAPBOX_TOKEN}
       mapStyle="mapbox://styles/mapbox/dark-v9"
       // mapStyle="mapbox://styles/mapbox/streets-v8"

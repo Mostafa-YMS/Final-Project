@@ -1,4 +1,5 @@
 // import { Get_Bus, Watch_Bus } from './action/constants';
+import { Make_Port } from './action/constants';
 
 
 // //reducer
@@ -18,3 +19,18 @@
 //         default:
 //             return state;
 //     }}
+
+export const makePortReducer = (state = {
+    width: 1100,
+    height: 669,
+    latitude: 30.0778,
+    longitude: 31.2852,
+    zoom: 1,
+  }, action) => {
+    switch(action.type) {
+        case Make_Port:
+            return action.payload;
+        default:
+            return state;
+    }
+}

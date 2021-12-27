@@ -1,4 +1,5 @@
 // import { Get_Bus, Watch_Bus } from './constants';
+import { Make_Port } from './constants';
 
 
 // //action creator
@@ -34,3 +35,10 @@
         
 //     }
 // }
+
+export function makePort(newPort) {
+    return {
+        type: Make_Port,
+        payload: newPort
+    }
+} 

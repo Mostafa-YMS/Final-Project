@@ -1,6 +1,9 @@
+import { createStore, applyMiddleware } from "redux";
+import { makePortReducer } from "./reducers";
+import thunk from 'redux-thunk'
+
 // import { createStore, applyMiddleware, combineReducers } from "redux";
 // import { getBusReducer, watchBusReducer } from "./reducers";
-// import thunk from 'redux-thunk'
 
 //     const rootReducer = combineReducers({
 //         watchBus: watchBusReducer,
@@ -10,3 +13,7 @@
 
 // //store
 // export const store = createStore(rootReducer, applyMiddleware(thunk));
+
+
+//store
+export const store = createStore(makePortReducer, applyMiddleware(thunk));

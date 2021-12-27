@@ -7,6 +7,7 @@ export const useGetDriver = () => {
 
   return async () => {
     const { data } = await apiContext.get("mapapi/get/");
+    console.log("data",data);
     return data;
   };
 };

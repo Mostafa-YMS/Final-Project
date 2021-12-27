@@ -9,6 +9,7 @@ import React, { useContext } from "react";
 import AuthContext from "./context/AuthContext";
 import { useState } from "react";
 import { Driverprovider} from "./context/DriverContext";
+
 import "./styles/App.css";
 
 
@@ -48,6 +49,7 @@ function App() {
 
         </Routes>
         </Driverprovider>
+        
     </>
   );
 }

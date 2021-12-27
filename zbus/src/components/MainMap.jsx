@@ -5,7 +5,7 @@ import { Lines } from "./Lines";
 import { BusLocations } from './BusLocations';
 
 export const MainMap = (props) => {
-
+console.log("test")
   const fullscreenControlStyle = {
     top: 36,
     left: 0,

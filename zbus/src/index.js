@@ -5,16 +5,24 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ApiContextProvider } from './context/ApiContext';
 import { AuthProvider } from "./context/AuthContext";
-
+import {
+  Provider,
+  KeepAlive,
+} from 'react-keep-alive';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <AuthProvider>
-    <ApiContextProvider baseURL="http://127.0.0.1:8000/">
-      <App />
-    </ApiContextProvider>
-    </AuthProvider>
-  </BrowserRouter>,
+  <Provider>
+    <KeepAlive name="App">
+      <BrowserRouter>
+        <AuthProvider>
+        <ApiContextProvider baseURL="http://127.0.0.1:8000/">
+          <App />
+        </ApiContextProvider>
+        </AuthProvider>
+      </BrowserRouter>
+    </KeepAlive>
+  </Provider>,
+
   document.getElementById('root')
 );
 

@@ -35,7 +35,7 @@ export const MainMap = (props) => {
   return (
     <ReactMapGL
       {...viewPort}
-      height="180%"
+      height="100%"
       width="100%"
       maxPitch={65}
       onViewportChange={(nextViewport) => dispatch(makePort(nextViewport))}

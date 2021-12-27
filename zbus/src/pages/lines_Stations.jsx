@@ -224,7 +224,7 @@ export const Lines_Stations = (props) => {
           </div>
         </div>
       </div>
-      <div className="col-8">
+      <div className="col-8" style={{width:"100vh", height:"93vh"}}>
         <MainMap />
       </div>
     </div></div>

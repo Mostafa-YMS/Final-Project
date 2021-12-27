@@ -14,7 +14,7 @@ export const Map = (props) => {
       <div className="container p-0">
         <div className="row">
 
-        <div className="col-12" style={{width:"100px", height:"460px"}}>
+        <div className="col-12" style={{width:"100vh", height:"93vh"}}>
         <MainMap auto={true}/>
         </div>
         </div>

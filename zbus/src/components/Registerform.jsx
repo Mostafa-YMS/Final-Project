@@ -11,14 +11,14 @@ export const RegisterForm = (props) => {
   const [birth_date, setBirthday] = useState("");
   
 
-  const validateEmail = (e) => {
-    var email = e.target.value
-    if (validator.isEmail(email)) {
-      setEmail('Valid Email :)')
-    } else {
-      setEmail('Enter valid Email!')
-    }
-  }
+  // const validateEmail = (e) => {
+  //   var email = e.target.value
+  //   if (validator.isEmail(email)) {
+  //     setEmail('Valid Email :)')
+  //   } else {
+  //     setEmail('Enter valid Email!')
+  //   }
+  // }
   const navigate = useNavigate();
   const handleMode = () => {
     navigate("/login");
@@ -106,7 +106,7 @@ export const RegisterForm = (props) => {
       <br />
       <input
         type="email"
-        onChange={(e) => validateEmail(e)}
+        onChange={(e) => setEmail(e.target.value)}
         className="form-control"
         placeholder="email"
       />

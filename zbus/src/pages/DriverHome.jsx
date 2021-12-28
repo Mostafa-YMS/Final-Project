@@ -4,9 +4,45 @@ import { useDriver } from "../hooks/hookdriver";
 import styles from "../styles/driverhome.module.css";
 import img from "../img/map2.png";
 import AuthContext from "../context/AuthContext";
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import useWebSocket, { ReadyState } from 'react-use-websocket';
+
 
 export const DriverHome = () => {
+
+  const socketUrl= 'ws://localhost:8000/ws/test/';
+    const [messageHistory, setMessageHistory] = useState([]);
+    let buses = []
+    
+  
+    const {
+      sendMessage,
+      lastMessage,
+      lastJsonMessage,
+      sendJsonMessage,
+      readyState,
+    } = useWebSocket(socketUrl, {onOpen: () => console.log('opened'),shouldReconnect: (closeEvent) => true,});
+  
+    useEffect(() => {
+      if (lastMessage !== null) {
+        setMessageHistory(prev => prev.concat(lastMessage));
+      }
+    }, [lastMessage, setMessageHistory]);
+  
+    
+    const handleClickSendMessage = useCallback((data) =>
+    sendJsonMessage(data), []);
+  
+    const connectionStatus = {
+      [ReadyState.CONNECTING]: 'Connecting',
+      [ReadyState.OPEN]: 'Open',
+      [ReadyState.CLOSING]: 'Closing',
+      [ReadyState.CLOSED]: 'Closed',
+      [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
+    }[readyState];
+
+
+
   let {driver,isready}= useContext(DriverContext)
   let { logOut } = useContext(AuthContext);
   let position = ""
@@ -25,6 +61,7 @@ export const DriverHome = () => {
     if(isready==true){
       position = navigator.geolocation.watchPosition( function(position) {       
         if (position.coords.latitude!="") {
+          handleClickSendMessage({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
           driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
    }
        else {

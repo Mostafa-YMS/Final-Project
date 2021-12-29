@@ -45,7 +45,6 @@ export const DriverHome = () => {
 
   let {driver,isready}= useContext(DriverContext)
   let { logOut } = useContext(AuthContext);
-  let position = ""
   // const dispatch = useDispatch()
   const [operating, setOperating] = useState(false)
   const driverupdate = useDriver();
@@ -57,22 +56,17 @@ export const DriverHome = () => {
   // driverupdate({ name:"659", latitude: latitude, longitude: 30.2356, driver:"sayed"})
 
   let start = ()=> {
-    setOperating(true)
     if(isready==true){
-      position = navigator.geolocation.watchPosition( function(position) {       
+      setOperating(navigator.geolocation.watchPosition( function(position) {       
         if (position.coords.latitude!="") {
-          handleClickSendMessage({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
-          driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
-   }
-       else {
-           console.log("errorrrrr")
-               
-              }   
-       
-       });}
-   } 
+          handleClickSendMessage({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username});
+          driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username});
+        }else{console.log("errorrrrr");};}))
+      };
+   }; 
    let end =  ()=> {
-    navigator.geolocation.clearWatch(position);
+    navigator.geolocation.clearWatch(operating);
+    setOperating(false)
        fetch('http://127.0.0.1:8000/mapapi/delete/'+driver.bus_number+'/', { method: 'DELETE' })
        setOperating(false)
    }

@@ -17,7 +17,6 @@ import "./styles/App.css";
 function App() {
   const [active , setactive] = useState (null);
 
-
   let { user, logOut } = useContext(AuthContext);
   
   return (

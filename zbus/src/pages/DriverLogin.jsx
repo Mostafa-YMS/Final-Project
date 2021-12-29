@@ -17,6 +17,7 @@ export const DriverLogin = (props) => {
       <br /><br /><br />
       <form onSubmit={loginDriver}>
         <div className="form-group m-3">
+        <small id="announceDriver" style={{color: "darkred"}}></small>
           <label>{props.label}</label>
           <input
             type="text"

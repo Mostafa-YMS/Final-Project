@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { MainMap } from "../components";
 import { useLines, useStops } from "../hooks/linesStations.jsx";
-import {FlyToInterpolator} from 'react-map-gl';
+import { FlyToInterpolator } from 'react-map-gl';
+import { useDispatch } from "react-redux";
+import { makePort } from "../reduxBus/action/creators";
 import img from "../img/map2.png";
 
 export const Lines_Stations = (props) => {
@@ -10,6 +12,8 @@ export const Lines_Stations = (props) => {
     document.body.style.backgroundRepeat = `no-repeat`;
     document.body.style.backgroundSize = `cover`;
   }
+
+  const dispatch = useDispatch()
 
   const [stationsData, setStationsData] = useState([]);
   const getstations = useStops();
@@ -24,14 +28,6 @@ export const Lines_Stations = (props) => {
   useEffect(() => {
     getlines().then(setlinesData);
   }, []);
-
-  const [viewport, setViewport] = useState({
-    width: 900,
-    height: 750,
-    latitude: 30.0778,
-    longitude: 31.2852,
-    zoom: 1,
-  });
 
   let x = "";
   let y = "";
@@ -97,6 +93,7 @@ export const Lines_Stations = (props) => {
   };
 
   return (
+    <div className="col">
     <div className="row">
       <div className="col-4 row justify-content-center align-self-center">
         <div className="dropdown m-3 d-inline">
@@ -146,7 +143,7 @@ export const Lines_Stations = (props) => {
                 onClick={() => {
                   {
                     if (station.station !== "please choose line ") {
-                      setViewport({
+                      dispatch(makePort({
                         latitude: station.st_latitude,
                         longitude: station.st_longitude,
                         zoom: 17,
@@ -154,7 +151,7 @@ export const Lines_Stations = (props) => {
                         bearing: 0,
                         transitionDuration: 1000,
                         transitionInterpolator: new FlyToInterpolator(),
-                      });
+                      }))
                     }
                   }
                 }}
@@ -228,9 +225,9 @@ export const Lines_Stations = (props) => {
         </div>
       </div>
       <div className="col-8">
-        <MainMap viewport={viewport} setViewport={setViewport}/>
+        <MainMap />
       </div>
-    </div>
+    </div></div>
   );
 };
 

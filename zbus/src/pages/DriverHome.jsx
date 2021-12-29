@@ -6,6 +6,7 @@ import img from "../img/map2.png";
 import AuthContext from "../context/AuthContext";
 import { useState, useCallback, useEffect } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
+import { useOperating } from '../hooks/useOperating';
 
 
 export const DriverHome = () => {
@@ -41,13 +42,17 @@ export const DriverHome = () => {
       [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
     }[readyState];
 
-
-
-  let {driver,isready}= useContext(DriverContext)
-  let { logOut } = useContext(AuthContext);
+    const [bus, setBus] = useState(false)
+    let {driver,isready}= useContext(DriverContext)
+    let { logOut } = useContext(AuthContext);
+    
+    const [watching, setWatching] = useState(false)
+    const driverupdate = useDriver();
+    const operate = useOperating()
+    useEffect(() => {
+      operate(driver.bus_number).then((res)=>setBus(res.data.operating))
+    }, [])
   // const dispatch = useDispatch()
-  const [operating, setOperating] = useState(false)
-  const driverupdate = useDriver();
   // const [latitude, setLatitude] = useState(31.3265)
 
   // setInterval(() => {
@@ -57,7 +62,8 @@ export const DriverHome = () => {
 
   let start = ()=> {
     if(isready==true){
-      setOperating(navigator.geolocation.watchPosition( function(position) {       
+      setBus(true)
+      setWatching(navigator.geolocation.watchPosition( function(position) {       
         if (position.coords.latitude!="") {
           handleClickSendMessage({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username});
           driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username});
@@ -65,10 +71,10 @@ export const DriverHome = () => {
       };
    }; 
    let end =  ()=> {
-    navigator.geolocation.clearWatch(operating);
-    setOperating(false)
+    navigator.geolocation.clearWatch(watching);
+      setWatching(false)
+      setBus(false)
        fetch('http://127.0.0.1:8000/mapapi/delete/'+driver.bus_number+'/', { method: 'DELETE' })
-       setOperating(false)
    }
    let logout = ()=> {
       end()
@@ -98,7 +104,7 @@ export const DriverHome = () => {
                     <li className="list-group-item">Last Name: <span className="badge"> {driver.last_name}</span></li>
                     <li className="list-group-item">Bus Number: <span className="badge"> {driver.bus_number}</span></li>
                   </ul>:null}
-                      {operating ? (<div className={styles.start}><button className="btn btn-primary px-4 " onClick={end} >End</button></div>
+                      {bus ? (<div className={styles.start}><button className="btn btn-primary px-4 " onClick={end} >End</button></div>
                       ) : (<div className={styles.start}><button  className="btn btn-primary px-4" onClick={start} >Start</button></div>)}
                 </div>
             </div>

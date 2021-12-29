@@ -9,6 +9,7 @@ import React, { useContext } from "react";
 import AuthContext from "./context/AuthContext";
 import { useState } from "react";
 import { Driverprovider} from "./context/DriverContext";
+
 import "./styles/App.css";
 
 
@@ -21,7 +22,7 @@ function App() {
   return (
     <>
       <Driverprovider>
-      {user ? <Navbar/> : ""}
+      {user && !user.bus_number? <Navbar/> : ""}
         <Routes>
           <Route
             path="/login"
@@ -35,18 +36,19 @@ function App() {
               <LoginRoute child={<LoginRegister mode={<RegisterForm />} />} />
             }
           />
-          <Route path="/" element={<LoginRoute child={<Home />} />}  />
-          <Route path="/home" element={<PrivateRoute child={<Map/>} />} />
+          <Route exact path="/" element={<LoginRoute child={<Home />} />}  />
+          <Route exact path="/home" element={<PrivateRoute child={<Map/>} />} />
           <Route path="/profile" element={<PrivateRoute child={<Profile/>} />} />
           <Route path="/lines" element={<PrivateRoute child={<Lines_Stations/>} />} />
           {/* <Route path="/lines" element={<Lines_Stations/>} /> */}
           #####
         <Route path="/driverlogin" element={<LoginRegister mode={<DriverLogin />}/>} />
-        <Route path="/driverhome" element={<DriverHome />} />
-        <Route path="/chat" element={<Chat />} />
+        <Route exact path="/driverhome" element={<DriverLoginRoute child={<DriverHome/>} />} />
+        <Route path="/chat" element={<PrivateRoute child={<Chat/>} />} />
 
         </Routes>
         </Driverprovider>
+        
     </>
   );
 }

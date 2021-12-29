@@ -1,8 +1,7 @@
 import { useGetDriver } from './../hooks/getDriver';
 import {Marker} from 'react-map-gl';
 import img from "../img/locationx.svg";
-import { useState, useCallback, useEffect } from 'react';
-import useWebSocket, { ReadyState } from 'react-use-websocket';
+import { useState, useEffect } from 'react';
 
 
 export const BusLocations = (props)=>{

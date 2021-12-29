@@ -30,9 +30,13 @@ export const DriverHome = () => {
       }
     }, [lastMessage, setMessageHistory]);
   
-    
+    const h = ""
     const handleClickSendMessage = useCallback((data) =>
-    sendJsonMessage(data), []);
+    h= sendJsonMessage(data), []);
+    if(lastMessage){
+
+      console.log(lastMessage.data);
+    }
   
     const connectionStatus = {
       [ReadyState.CONNECTING]: 'Connecting',
@@ -52,20 +56,13 @@ export const DriverHome = () => {
     useEffect(() => {
       operate(driver.bus_number).then((res)=>setBus(res.data.operating))
     }, [])
-  // const dispatch = useDispatch()
-  // const [latitude, setLatitude] = useState(31.3265)
-
-  // setInterval(() => {
-  //   setLatitude(latitude+0.0001)
-  // }, 3000);
-  // driverupdate({ name:"659", latitude: latitude, longitude: 30.2356, driver:"sayed"})
 
   let start = ()=> {
     if(isready==true){
       setBus(true)
       setWatching(navigator.geolocation.watchPosition( function(position) {       
         if (position.coords.latitude!="") {
-          handleClickSendMessage({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username});
+          // handleClickSendMessage({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username});
           driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username});
         }else{console.log("errorrrrr");};}))
       };

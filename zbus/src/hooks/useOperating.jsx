@@ -8,7 +8,5 @@ export const useOperating = () => {
 
   return async (name) => {
     return await apiContext.get("/mapapi/operating/"+name+"/");
-    // return await apiContext.post("/mapapi/post/", post);
-    
   };
 };  

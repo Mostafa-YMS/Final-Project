@@ -42,11 +42,11 @@ export const BusSocket = () => {
     
   
     return (<>
-        {buses ? buses.map((bus)=>(
-            <Marker latitude={bus.fields.latitude} longitude={bus.fields.longitude} key={bus.pk} >
+        {/* {buses ? buses.map((bus)=>(
+            <Marker latitude={bus.latitude} longitude={bus.longitude} key={bus.pk} >
                 <img src={img}/>
-                <p style={{color: "white"}}>{bus.fields.name}</p>
+                <p style={{color: "white"}}>{bus.name}</p>
             </Marker>
-        )) : null}
+        )) : null} */}
     </>);
     };

@@ -1,24 +1,32 @@
 import { useGetDriver } from './../hooks/getDriver';
-import { useState, useEffect } from 'react';
 import {Marker} from 'react-map-gl';
 import img from "../img/locationx.svg";
+import { useState, useCallback, useEffect } from 'react';
+import useWebSocket, { ReadyState } from 'react-use-websocket';
 
 
 export const BusLocations = (props)=>{
-    // ws://localhost:8000/ws/test/
     
-    // const getBuses = useGetDriver();
-    // // console.log("fired");
-    
-    //     useEffect(() => {
-    //     //     console.log(buses);
-    //         getBuses().then(setBuses);
-    //     }, []);
+    const getBuses = useGetDriver();
+    const [buses, setBuses] = useState([])
+    const [counter, setCounter] = useState(0)
+    setTimeout(() => {
+        setCounter(counter + 0.0001)
+    }, 5000);
+
+    useEffect(() => {
+        getBuses().then(setBuses);
+    }, [counter ,setBuses])
+        
 
     return(
         <>
-        
-        
+        {buses ? buses.map((bus)=>(
+            <Marker latitude={bus.latitude} longitude={bus.longitude} key={bus.pk} >
+                <img src={img}/>
+                <p style={{color: "white"}}>{bus.name}</p>
+            </Marker>
+        )) : null}
         </>
         
         

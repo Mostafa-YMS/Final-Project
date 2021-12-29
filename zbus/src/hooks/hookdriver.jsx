@@ -8,7 +8,5 @@ export const useDriver = () => {
 
   return async (post) => {
     return await apiContext.post("/mapapi/update/"+post.name+"/", post);
-    // return await apiContext.post("/mapapi/post/", post);
-    
   };
 };  

@@ -5,6 +5,7 @@ import { Lines } from "./Lines";
 import { BusSocket } from './BusSocket';
 import { useDispatch, useSelector } from "react-redux";
 import { makePort } from "../reduxBus/action/creators";
+import { BusLocations } from "./BusLocations";
 
 export const MainMap = (props) => {
   const dispatch = useDispatch()
@@ -52,9 +53,9 @@ export const MainMap = (props) => {
       <div style={{ position: "absolute", right: 30, top: 0, zIndex: 1 }}>
         <NavigationControl></NavigationControl>
       </div>
-      {/* <Bus1 /> */}
       <Stations />
-      <BusSocket/>
+      {/* <BusSocket/> */}
+      <BusLocations/>
       <Lines />
       <FullscreenControl style={fullscreenControlStyle} />
       <ScaleControl style={scaleControlStyle} />

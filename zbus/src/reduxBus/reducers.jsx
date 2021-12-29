@@ -21,8 +21,6 @@ import { Make_Port } from './action/constants';
 //     }}
 
 export const makePortReducer = (state = {
-    width: 1100,
-    height: 669,
     latitude: 30.0778,
     longitude: 31.2852,
     zoom: 1,

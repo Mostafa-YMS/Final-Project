@@ -4,33 +4,77 @@ import { useDriver } from "../hooks/hookdriver";
 import styles from "../styles/driverhome.module.css";
 import img from "../img/map2.png";
 import AuthContext from "../context/AuthContext";
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import useWebSocket, { ReadyState } from 'react-use-websocket';
+import { useOperating } from '../hooks/useOperating';
+
 
 export const DriverHome = () => {
-  let {driver,isready}= useContext(DriverContext)
-  let { logOut } = useContext(AuthContext);
-  let position = ""
+
+  const socketUrl= 'ws://localhost:8000/ws/test/';
+    const [messageHistory, setMessageHistory] = useState([]);
+    let buses = []
+    
+  
+    const {
+      sendMessage,
+      lastMessage,
+      lastJsonMessage,
+      sendJsonMessage,
+      readyState,
+    } = useWebSocket(socketUrl, {onOpen: () => console.log('opened'),shouldReconnect: (closeEvent) => true,});
+  
+    useEffect(() => {
+      if (lastMessage !== null) {
+        setMessageHistory(prev => prev.concat(lastMessage));
+      }
+    }, [lastMessage, setMessageHistory]);
+  
+    
+    const handleClickSendMessage = useCallback((data) =>
+    sendJsonMessage(data), []);
+  
+    const connectionStatus = {
+      [ReadyState.CONNECTING]: 'Connecting',
+      [ReadyState.OPEN]: 'Open',
+      [ReadyState.CLOSING]: 'Closing',
+      [ReadyState.CLOSED]: 'Closed',
+      [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
+    }[readyState];
+
+    const [bus, setBus] = useState(false)
+    let {driver,isready}= useContext(DriverContext)
+    let { logOut } = useContext(AuthContext);
+    
+    const [watching, setWatching] = useState(false)
+    const driverupdate = useDriver();
+    const operate = useOperating()
+    useEffect(() => {
+      operate(driver.bus_number).then((res)=>setBus(res.data.operating))
+    }, [])
   // const dispatch = useDispatch()
-  const [operating, setOperating] = useState(false)
-  const driverupdate = useDriver();
+  // const [latitude, setLatitude] = useState(31.3265)
+
+  // setInterval(() => {
+  //   setLatitude(latitude+0.0001)
+  // }, 3000);
+  // driverupdate({ name:"659", latitude: latitude, longitude: 30.2356, driver:"sayed"})
+
   let start = ()=> {
-    setOperating(true)
     if(isready==true){
-      position = navigator.geolocation.watchPosition( function(position) {       
+      setBus(true)
+      setWatching(navigator.geolocation.watchPosition( function(position) {       
         if (position.coords.latitude!="") {
-          driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username})
-   }
-       else {
-           console.log("errorrrrr")
-               
-              }   
-       
-       });}
-   } 
+          handleClickSendMessage({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username});
+          driverupdate({ name:driver.bus_number, latitude: position.coords.latitude, longitude: position.coords.longitude, driver:driver.username});
+        }else{console.log("errorrrrr");};}))
+      };
+   }; 
    let end =  ()=> {
-    navigator.geolocation.clearWatch(position);
+    navigator.geolocation.clearWatch(watching);
+      setWatching(false)
+      setBus(false)
        fetch('http://127.0.0.1:8000/mapapi/delete/'+driver.bus_number+'/', { method: 'DELETE' })
-       setOperating(false)
    }
    let logout = ()=> {
       end()
@@ -60,7 +104,7 @@ export const DriverHome = () => {
                     <li className="list-group-item">Last Name: <span className="badge"> {driver.last_name}</span></li>
                     <li className="list-group-item">Bus Number: <span className="badge"> {driver.bus_number}</span></li>
                   </ul>:null}
-                      {operating ? (<div className={styles.start}><button className="btn btn-primary px-4 " onClick={end} >End</button></div>
+                      {bus ? (<div className={styles.start}><button className="btn btn-primary px-4 " onClick={end} >End</button></div>
                       ) : (<div className={styles.start}><button  className="btn btn-primary px-4" onClick={start} >Start</button></div>)}
                 </div>
             </div>

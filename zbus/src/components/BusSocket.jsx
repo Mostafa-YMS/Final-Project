@@ -15,7 +15,7 @@ export const BusSocket = () => {
       lastMessage,
       lastJsonMessage,
       readyState,
-    } = useWebSocket(socketUrl);
+    } = useWebSocket(socketUrl, {onOpen: () => console.log('opened'),shouldReconnect: (closeEvent) => true,});
   
     useEffect(() => {
       if (lastMessage !== null) {
@@ -25,9 +25,6 @@ export const BusSocket = () => {
   
   
   
-    const handleClickSendMessage = useCallback(() =>
-      sendMessage('Hello'), []);
-  
     const connectionStatus = {
       [ReadyState.CONNECTING]: 'Connecting',
       [ReadyState.OPEN]: 'Open',
@@ -36,8 +33,9 @@ export const BusSocket = () => {
       [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
     }[readyState];
     try{
-      let payload = lastJsonMessage.paylod
-      buses = payload
+      let payload = lastJsonMessage
+      // buses = payload
+      console.log(payload);
     } catch{
         console.log("no payload");
     }

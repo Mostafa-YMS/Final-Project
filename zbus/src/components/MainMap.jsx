@@ -35,6 +35,8 @@ export const MainMap = (props) => {
   return (
     <ReactMapGL
       {...viewPort}
+      height="100%"
+      width="100%"
       maxPitch={65}
       onViewportChange={(nextViewport) => dispatch(makePort(nextViewport))}
       mapboxApiAccessToken={MAPBOX_TOKEN}

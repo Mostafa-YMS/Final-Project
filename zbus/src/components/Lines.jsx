@@ -28,33 +28,37 @@ export const Lines = () => {
       }
     }
   }
-  
 
   return (
     <>
-    {cords ? cords.map((cord)=>(<Source 
-    key={cord.id}
-     type="geojson" data={{
-    type: "Feature",
-    properties: {},
-    geometry: {
-      type: "LineString",
-      coordinates: cord.LineCords,
-    },
-  }}>
-        <Layer
-          type="line"
-          layout={{
-            "line-join": "round",
-            "line-cap": "round",
-          }}
-          paint={{
-            "line-color": cord.Color,
-            "line-width": 2,
-          }}
-        />
-      </Source>)) : ""}
-    
+      {cords
+        ? cords.map((cord) => (
+            <Source
+              key={cord.id}
+              type="geojson"
+              data={{
+                type: "Feature",
+                properties: {},
+                geometry: {
+                  type: "LineString",
+                  coordinates: cord.LineCords,
+                },
+              }}
+            >
+              <Layer
+                type="line"
+                layout={{
+                  "line-join": "round",
+                  "line-cap": "round",
+                }}
+                paint={{
+                  "line-color": cord.Color,
+                  "line-width": 2,
+                }}
+              />
+            </Source>
+          ))
+        : ""}
     </>
   );
 };

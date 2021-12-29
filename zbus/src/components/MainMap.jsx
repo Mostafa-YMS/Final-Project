@@ -1,35 +1,38 @@
 import React from "react";
-import ReactMapGL, { NavigationControl, GeolocateControl, FullscreenControl, ScaleControl } from "react-map-gl";
+import ReactMapGL, {
+  NavigationControl,
+  GeolocateControl,
+  FullscreenControl,
+  ScaleControl,
+} from "react-map-gl";
 import { Stations } from "../components";
 import { Lines } from "./Lines";
-import { BusSocket } from './BusSocket';
 import { useDispatch, useSelector } from "react-redux";
 import { makePort } from "../reduxBus/action/creators";
 import { BusLocations } from "./BusLocations";
 
 export const MainMap = (props) => {
-  const dispatch = useDispatch()
-  const viewPort = useSelector(state => state)
+  const dispatch = useDispatch();
+  const viewPort = useSelector((state) => state);
 
   const fullscreenControlStyle = {
     top: 36,
     left: 0,
-    padding: '10px'
+    padding: "10px",
   };
   const scaleControlStyle = {
     bottom: 36,
     left: 0,
-    padding: '10px'
+    padding: "10px",
   };
-  
-  const MAPBOX_TOKEN =
-    "pk.eyJ1IjoibW9oYW1lZGFtaW4wMDAwMCIsImEiOiJja3gwZnJiazkwczRhMnJwenduZ2ZkN2x6In0.HafaYHRDf0lGzVMq3k318w";
-
   const geolocateStyle = {
     top: 0,
     left: 0,
     margin: 10,
   };
+
+  const MAPBOX_TOKEN =
+    "pk.eyJ1IjoibW9oYW1lZGFtaW4wMDAwMCIsImEiOiJja3gwZnJiazkwczRhMnJwenduZ2ZkN2x6In0.HafaYHRDf0lGzVMq3k318w";
 
   const positionOptions = { enableHighAccuracy: true };
 
@@ -54,8 +57,7 @@ export const MainMap = (props) => {
         <NavigationControl></NavigationControl>
       </div>
       <Stations />
-      {/* <BusSocket/> */}
-      <BusLocations/>
+      <BusLocations />
       <Lines />
       <FullscreenControl style={fullscreenControlStyle} />
       <ScaleControl style={scaleControlStyle} />

@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { ApiContext } from "../context/ApiContext";
 
-
 export const useLines = () => {
   const apiContext = useContext(ApiContext);
 
@@ -11,7 +10,6 @@ export const useLines = () => {
   };
 };
 
-
 export const useStops = () => {
   const apiContext = useContext(ApiContext);
 
@@ -20,7 +18,6 @@ export const useStops = () => {
     return data;
   };
 };
-
 
 export const useCords = () => {
   const apiContext = useContext(ApiContext);

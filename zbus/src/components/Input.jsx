@@ -4,7 +4,7 @@ export const Input = (props) => {
   };
   return (
     <div className="form-group m-3">
-      <label >{props.label}</label>
+      <label>{props.label}</label>
       <input
         type={props.type}
         value={props.value}

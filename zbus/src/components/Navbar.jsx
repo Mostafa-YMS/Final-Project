@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
 export const Navbar = (props) => {
-  let { user, logOut } = useContext(AuthContext);
+  let { logOut } = useContext(AuthContext);
   const [darkMode, setDarkMode] = React.useState(false);
 
   React.useEffect(() => {
@@ -36,9 +36,17 @@ export const Navbar = (props) => {
         <NavLink className="navbar-brand" to="/">
           UBus
         </NavLink>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
@@ -57,25 +65,22 @@ export const Navbar = (props) => {
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="#"
+                href=""
                 onClick={() => setDarkMode(!darkMode)}
               >
                 Dark Mode
               </a>
             </li>
             <li className="nav-item ">
-              <NavLink className="nav-link"   to="/chat">
+              <NavLink className="nav-link" to="/chat">
                 Chat
               </NavLink>
-              {/* <NavLink className="nav-link"   to="/Profile">
-                Profile
-              </NavLink> */}
             </li>
-              <li className="nav-item">
-                <a className="nav-link" href="" onClick={logOut}>
-                  logout
-                </a>
-              </li>
+            <li className="nav-item">
+              <a className="nav-link" href="" onClick={logOut}>
+                logout
+              </a>
+            </li>
           </ul>
         </div>
       </div>

@@ -12,7 +12,7 @@ export const Chat = () => {
   let { user } = useContext(AuthContext)
   const username=user.username
   return ( <div   style={{paddingLeft: "500px", paddingTop: "60px"}}>
-  <ChatBot  style={{ }}
+  <ChatBot  
     steps={[
       
       {

@@ -11,6 +11,6 @@ let {driver} = useContext(DriverContext)
 export const DriverLoginRoute = (props)=>{
 let {driver} = useContext(DriverContext)
 
-    return !driver ? <Navigate to="/driverlogin"/> : props.child  ;
+    return !driver ? <Navigate to="/driverlogin"/> : driver.bus_number? props.child : <Navigate to="/home"/>;
 
 }

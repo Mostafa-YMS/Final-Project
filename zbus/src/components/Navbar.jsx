@@ -65,7 +65,7 @@ export const Navbar = (props) => {
             <li className="nav-item">
               <a
                 className="nav-link"
-                href=""
+                href="#"
                 onClick={() => setDarkMode(!darkMode)}
               >
                 Dark Mode

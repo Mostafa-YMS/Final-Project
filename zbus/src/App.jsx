@@ -56,7 +56,7 @@ function App() {
             />
           }
         />
-        <Route exact path="/" element={<LoginRoute child={<Home />} />} />
+        <Route exact path="/" element={<LoginRoute child={<Home setBackGround={setBackGround}/>} />} />
         <Route
           exact
           path="/home"

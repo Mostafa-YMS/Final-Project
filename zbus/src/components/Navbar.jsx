@@ -1,34 +1,10 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
+import { DarkMode } from './DarkMode';
 
 export const Navbar = (props) => {
   let { logOut } = useContext(AuthContext);
-  const [darkMode, setDarkMode] = React.useState(false);
-
-  React.useEffect(() => {
-    const json = localStorage.getItem("site-dark-mode");
-    const currentMode = JSON.parse(json);
-    if (currentMode) {
-      setDarkMode(true);
-    } else {
-      setDarkMode(false);
-    }
-  }, []);
-
-  React.useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-      document.getElementById("nav").className =
-        "navbar navbar-expand-lg navbar-dark bg-dark";
-    } else {
-      document.body.classList.remove("dark");
-      document.getElementById("nav").className =
-        "navbar navbar-expand-lg navbar-light bg-light";
-    }
-    const json = JSON.stringify(darkMode);
-    localStorage.setItem("site-dark-mode", json);
-  }, [darkMode]);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light" id="nav">
@@ -63,13 +39,7 @@ export const Navbar = (props) => {
 
           <ul className="my-2 my-lg-0 navbar-nav ml-auto">
             <li className="nav-item">
-              <a
-                className="nav-link"
-                href="#"
-                onClick={() => setDarkMode(!darkMode)}
-              >
-                Dark Mode
-              </a>
+              <DarkMode class="nav-link"/>
             </li>
             <li className="nav-item ">
               <NavLink className="nav-link" to="/chat">

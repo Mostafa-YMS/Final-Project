@@ -6,6 +6,7 @@ import img from "../img/map2.png";
 import AuthContext from "../context/AuthContext";
 import { useState, useEffect } from "react";
 import { useOperating } from "../hooks/useOperating";
+import { DarkMode } from '../components/DarkMode';
 
 export const DriverHome = (props) => {
   props.setBackGround(img);
@@ -55,6 +56,7 @@ export const DriverHome = (props) => {
 
   return (
     <div className="container mt-5" style={styles}>
+      <DarkMode class="btn btn-dark"/>
       <a
         style={{ float: "right" }}
         href=""
@@ -81,7 +83,8 @@ export const DriverHome = (props) => {
               <span>Bus {driver.bus_number} driver</span>
               <div className="px-4 mt-1"></div>
               {isready ? (
-                <ul className="list-group " className={styles.new}>
+                <ul className="list-group" className={styles.new}>
+                  <div id="liDiv">
                   <li className="list-group-item">
                     First Name:
                     <span className="badge"> {driver.first_name}</span>
@@ -94,6 +97,7 @@ export const DriverHome = (props) => {
                     Bus Number:
                     <span className="badge"> {driver.bus_number}</span>
                   </li>
+                  </div>
                 </ul>
               ) : null}
               {bus ? (

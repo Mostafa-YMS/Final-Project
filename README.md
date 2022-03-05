@@ -36,20 +36,12 @@
 
 ## Technologies:
 
-➔ Backend:
-
-    •	 Python (Django)
-
 ➔ Frontend:
 
     •	HTML
     •	CSS
     •	Bootstrap
     •	React
-
-➔ Database: -
-
-    •	PostgreSQL
 
 ## How it works?
 
@@ -88,13 +80,3 @@
 ### Chatting
 
 • You can chat with us to Ask, make a suggestion or complain
-
-### Admin Page
-
-• With Administration Page The administrator can define:
-
-    •	Lines
-    •	Stops
-    •	Add and Delete Drivers
-    •	Buses
-    •	Users
